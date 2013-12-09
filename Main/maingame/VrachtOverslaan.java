@@ -29,8 +29,12 @@ public class VrachtOverslaan extends Minigames
                     addObject(new Spoor1(), x, y);
                 }
                 
-                if(y == 0 || y == 12){
+                else if(y == 0 || y == 12){
                     addObject(new Spoor2(), x, y);
+                }
+                
+                else if(y < 5 || y > 8){
+                    addObject(new Dijk(), x, y);
                 }
                 
             }
