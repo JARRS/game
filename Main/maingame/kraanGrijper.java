@@ -15,6 +15,8 @@ public class kraanGrijper extends Vrachoverslaanobjecten
     public void act() 
     {
         MouseInfo mouse = Greenfoot.getMouseInfo(); 
+        int grijperx = getX();
+        int grijpery = getY();
         
         int mx = 0;
         int my = 0;

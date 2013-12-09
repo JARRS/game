@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import javax.swing.JOptionPane;
 /**
  * Write a description of class Hoofdmenu2 here.
  * 
@@ -14,6 +14,27 @@ public class Hoofdmenu2 extends Taskbar2
      */
     public void act() 
     {
-        // Add your action code here.
+        hover();
+        pressed();
+    }    
+    
+    public void hover(){
+        GreenfootImage button = getImage();
+        if(Greenfoot.mouseMoved(this) == true ){
+            setImage("../images/taskbar_hoofdmenuHover.png");
+        }
+        else{
+            setImage("../images/taskbar2_hoofdmenu.png");
+        }
+    }
+    
+    public void pressed(){
+        if(Greenfoot.mousePressed(this) == true){
+            int reply = JOptionPane.showConfirmDialog(null, "Wilt u naar het hoofdmenu terugkeren?", "Hoofdmenu", JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION){
+                 getWorld().removeObject(this);
+                 Greenfoot.setWorld(new Menu());
+            }
+        }
     }    
 }
