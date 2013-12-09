@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import javax.swing.JOptionPane;
 /**
  * Write a description of class Trein_vrachtoverslaan here.
  * 
@@ -16,7 +16,7 @@ public class Trein_vrachtoverslaan extends Vrachoverslaanobjecten
     int load = 0;
     public void act() 
     {
-        if(load == 1){
+        if(load == 7){
             move();
         }
         
@@ -38,7 +38,7 @@ public class Trein_vrachtoverslaan extends Vrachoverslaanobjecten
     
     public void move(){
         if(getX() == 19){
-            setLocation(0,getY());
+            succes();
         }
         else if(getX() == 7){
             setLocation(getX()+1,getY());
@@ -48,4 +48,16 @@ public class Trein_vrachtoverslaan extends Vrachoverslaanobjecten
             setLocation(getX()+1,getY());
         }
     }
+    
+    void succes(){
+        int reply = JOptionPane.showConfirmDialog(null, "Gefeliciteerd, wilt u nog een keer spelen?", "Gewonnen!", JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION){
+                 getWorld().removeObject(this);
+                 Greenfoot.setWorld(new VrachtOverslaan());
+            }
+            else if(reply == JOptionPane.NO_OPTION){
+                getWorld().removeObject(this);
+                Greenfoot.setWorld(new Menu());
+            }
+        }
 }
