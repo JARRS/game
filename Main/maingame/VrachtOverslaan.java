@@ -62,10 +62,12 @@ public class VrachtOverslaan extends Minigames
         }
         }
         
-        addObject(new KraanBasis(), 10, 3);
-        addObject(new KraanBasis(), 10, 10);
-        addObject(new kraanGrijper(), 10, 5);
+        addObject(new KraanBasis(), 13, 3);
+        addObject(new KraanBasis(), 13, 10);
+        addObject(new KraanGrijper_tegenstander(), 10, 5);
         addObject(new kraanGrijper(), 10, 8);
+        addObject(new KraanXding_tegenstander(), 10, 3);
+        addObject(new kraanXding(), 10, 10);
     }
 }
 
