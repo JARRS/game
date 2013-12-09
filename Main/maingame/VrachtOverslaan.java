@@ -20,6 +20,7 @@ public class VrachtOverslaan extends Minigames
         
         fill();
         taskbar();
+        objects();
     }
     
     void fill(){
@@ -47,6 +48,24 @@ public class VrachtOverslaan extends Minigames
         addObject(new Taskbar2(), 10, 0);
         addObject(new Afsluiten2(), 18, 0);
         addObject(new Hoofdmenu2(), 16, 0);
+    }
+    
+    void objects(){
+        addObject(new Boot_vrachtoverslaan(),10, 5);
+        addObject(new Boot_vrachtoverslaan(),10, 8);
+        
+        for(int y = 5; y <= 8; y++){
+            for(int x = 7; x <= 13; x++){
+            if(y == 5 || y == 8){
+                addObject(new Krat_vrachtoverslaan(), x, y);
+            }
+        }
+        }
+        
+        addObject(new KraanBasis(), 10, 3);
+        addObject(new KraanBasis(), 10, 10);
+        addObject(new kraanGrijper(), 10, 5);
+        addObject(new kraanGrijper(), 10, 8);
     }
 }
 

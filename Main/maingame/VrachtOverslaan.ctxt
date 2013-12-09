@@ -6,4 +6,6 @@ comment1.params=
 comment1.target=void\ fill()
 comment2.params=
 comment2.target=void\ taskbar()
-numComments=3
+comment3.params=
+comment3.target=void\ objects()
+numComments=4
