@@ -56,7 +56,11 @@ public class VrachtOverslaan extends Minigames
         
         for(int y = 5; y <= 8; y++){
             for(int x = 7; x <= 13; x++){
-            if(y == 5 || y == 8){
+            if(y == 5){
+                addObject(new Krat_vrachtoverslaan_tegenstander(), x, y);
+            }
+            
+            if(y == 8){
                 addObject(new Krat_vrachtoverslaan(), x, y);
             }
         }
