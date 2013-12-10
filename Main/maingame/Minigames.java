@@ -16,7 +16,7 @@ public class Minigames extends World
     public Minigames()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(50, 40, 20); 
+        super(50, 42, 20); 
         
 
         taskbar();
