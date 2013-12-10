@@ -40,8 +40,7 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
                 }
             
             
-                if(Greenfoot.mouseClicked(grijper) || Greenfoot.mouseClicked(xding))
-                {
+                if((Greenfoot.mouseClicked(grijper) || Greenfoot.mouseClicked(xding)))                {
                 wordtgetild = false;
                 }
                 return ;
