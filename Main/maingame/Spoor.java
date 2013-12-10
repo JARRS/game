@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Spoor2 here.
+ * Write a description of class Spoor here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Spoor2 extends Vrachoverslaanobjecten
+public class Spoor extends Vrachoverslaanobjecten
 {
     /**
-     * Act - do whatever the Spoor2 wants to do. This method is called whenever
+     * Act - do whatever the Spoor wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
