@@ -1,4 +1,17 @@
 #################
+## Greenfoot
+#################
+
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+
+
+#################
 ## Eclipse
 #################
 
@@ -214,13 +227,4 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
-#################
-## Greenfoot
-#################
 
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
