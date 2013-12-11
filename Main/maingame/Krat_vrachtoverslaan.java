@@ -42,13 +42,14 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
             
                 if((Greenfoot.mouseClicked(grijper) || Greenfoot.mouseClicked(xding)))                {
                 wordtgetild = false;
+                Greenfoot.playSound("sounds/neerzetten.wav");
                 }
                 return ;
         }
         if(mx == getX() && my == getY() && (Greenfoot.mouseClicked(grijper) || Greenfoot.mouseClicked(xding) ) )
         {
             wordtgetild = true;
-
+            Greenfoot.playSound("sounds/oppakken.wav");
         }
         
     }    

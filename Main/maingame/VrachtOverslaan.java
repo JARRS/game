@@ -26,7 +26,7 @@ public class VrachtOverslaan extends Minigames
     void fill(){
         for(int y = 0; y < 42; y++){
             for(int x = 0; x < 50; x++){
-                if(y == 1 || y == 3 || y == 41 || y == 39){
+                if(y == 2 || y == 4 || y == 40 || y == 28){
                     addObject(new Spoor(), x, y);
                 }
                 
@@ -49,6 +49,8 @@ public class VrachtOverslaan extends Minigames
     void objects(){
         addObject(new Boot_vrachtoverslaan(),24, 16);
         addObject(new Boot_vrachtoverslaan(),24, 26);
+        addObject(new Trein_vrachtoverslaan(), 30, 3);
+        addObject(new Trein_vrachtoverslaan(), 30, 39);
         
         for(int y = 14; y <= 28; y+= 2){
             for(int x = 10; x <= 39; x+= 2){
@@ -64,12 +66,12 @@ public class VrachtOverslaan extends Minigames
         
         addObject(new KraanBasis(), 29, 8);
         addObject(new KraanBasis(), 29, 34);
-        /*addObject(new Trein_vrachtoverslaan(), 8, 1);
-        addObject(new Trein_vrachtoverslaan(), 8, 12);*/
         addObject(new KraanGrijper_tegenstander(), 22, 18);
         addObject(new kraanGrijper(), 22, 24);
         addObject(new KraanXding_tegenstander(), 22, 10);
         addObject(new kraanXding(), 22, 32);
+        taskbar();
     }
+   
 }
 
