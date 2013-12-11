@@ -26,7 +26,7 @@ public class VrachtOverslaan extends Minigames
     void fill(){
         for(int y = 0; y < 42; y++){
             for(int x = 0; x < 50; x++){
-                if(y == 2 || y == 4 || y == 40 || y == 28){
+                if(y == 2 || y == 4 || y == 40 || y == 38){
                     addObject(new Spoor(), x, y);
                 }
                 
