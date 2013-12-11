@@ -26,11 +26,11 @@ public class kraanGrijper extends Vrachoverslaanobjecten
         }  
         
         //check of de grijper binnen het domein valt, dan zet de positie van de grijper
-        if(mx <= 19 && mx >= 7)
+        if(mx <= 48 && mx >= 10)
         {
             setLocation(mx, getY());
         }
-        if(my <= 12 && my >= 8)
+        if(my <= 40 && my >= 24)
         {
             setLocation(getX(), my);
         }

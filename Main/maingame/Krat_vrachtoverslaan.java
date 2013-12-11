@@ -30,11 +30,11 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
         
         if(wordtgetild)
         {
-                if(mx <= 19 && mx >= 7)
+                if(mx <= 48 && mx >= 10)
                     {
                     setLocation(mx, getY());
                 }
-                if(my <= 12 && my >= 8)
+                if(my <= 40 && my >= 24)
                 {
                     setLocation(getX(), my);
                 }
@@ -42,12 +42,14 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
             
                 if((Greenfoot.mouseClicked(grijper) || Greenfoot.mouseClicked(xding)))                {
                 wordtgetild = false;
+                Greenfoot.playSound("sounds/neerzetten.wav");
                 }
                 return ;
         }
         if(mx == getX() && my == getY() && (Greenfoot.mouseClicked(grijper) || Greenfoot.mouseClicked(xding) ) )
         {
             wordtgetild = true;
+            Greenfoot.playSound("sounds/oppakken.wav");
         }
         
     }    
