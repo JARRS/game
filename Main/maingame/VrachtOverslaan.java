@@ -13,6 +13,7 @@ public class VrachtOverslaan extends Minigames
      * Constructor for objects of class VrachtOverslaan.
      * 
      */
+    
     public VrachtOverslaan()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -52,6 +53,54 @@ public class VrachtOverslaan extends Minigames
         addObject(new Trein_vrachtoverslaan(), 30, 3);
         addObject(new Trein_vrachtoverslaan(), 30, 39);
         
+        //zet containers neer
+        String[][] randomContainers = getRandomContainers(3, 15);
+        //Vector startEigenContainers = new Vector(10, 24);
+        //Vector startComputerContainers = new Vector(10, 14);
+        for(int y = 0; y <= 2; y++)
+        {
+            for(int x = 0; x <= 14; x++)
+            {
+                //maak eigen containers
+                if(randomContainers[x][y] == "container1")
+                {
+                    addObject(new Krat_vrachtoverslaan(), 10 + (2 * x), 24 + (2 * y));
+                }
+                else if(randomContainers[x][y] == "container2")
+                {
+                    addObject(new Dijk(), 10 + (2 * x), 24 + (2 * y));
+                }
+                else if(randomContainers[x][y] == "container3")
+                {
+                    addObject(new Border(), 10 + (2 * x), 24 + (2 * y));
+                }
+                else if(randomContainers[x][y] == "container4")
+                {
+                    addObject(new Spoor(), 10 + (2 * x), 24 + (2 * y));
+                }
+                
+                //maak containers tegenstander
+                if(randomContainers[x][y] == "container1")
+                {
+                    addObject(new Krat_vrachtoverslaan_tegenstander(), 10 + (2 * x), 18 - (2 * y));
+                }
+                else if(randomContainers[x][y] == "container2")
+                {
+                    addObject(new Dijk(), 10 + (2 * x), 18 - (2 * y));
+                }
+                else if(randomContainers[x][y] == "container3")
+                {
+                    addObject(new Border(), 10 + (2 * x), 18 - (2 * y));
+                }
+                else if(randomContainers[x][y] == "container4")
+                {
+                    addObject(new Spoor(), 10 + (2 * x), 18 - (2 * y));
+                }
+            }
+        }
+        
+        /*
+         * ROBINS STUKJE VOOR ALS JE HET NOG WILT TERUGZETTEN
         for(int y = 14; y <= 28; y+= 2){
             for(int x = 10; x <= 39; x+= 2){
             if(y >= 14 && y <= 18){
@@ -63,7 +112,8 @@ public class VrachtOverslaan extends Minigames
             }
         }
         }
-        
+        */
+       
         addObject(new KraanBasis(), 29, 8);
         addObject(new KraanBasis(), 29, 34);
         addObject(new KraanGrijper_tegenstander(), 22, 18);
@@ -71,6 +121,40 @@ public class VrachtOverslaan extends Minigames
         addObject(new KraanXding_tegenstander(), 22, 10);
         addObject(new kraanXding(), 22, 32);
         taskbar();
+    }
+    
+    public String[][] getRandomContainers(int y, int x)
+    {          
+        //vul array met random containers
+        String[][] array = new String[x][y];
+        
+        for(int a = 0; a < y; a++)
+        {
+            for(int b = 0; b < x; b++)
+            {
+                String containerType = "";
+                int random = Greenfoot.getRandomNumber(4);
+                if(random == 0)
+                {
+                    containerType = "container1";
+                }
+                else if(random == 1)
+                {
+                    containerType = "container2";
+                }
+                else if(random == 2)
+                {
+                    containerType = "container3";
+                }
+                else if(random == 3)
+                {
+                    containerType = "container4";
+                }
+                array[b][a] = containerType;
+            }
+        }
+        
+        return array;
     }
    
 }
