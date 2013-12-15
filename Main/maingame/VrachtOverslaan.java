@@ -50,7 +50,7 @@ public class VrachtOverslaan extends Minigames
     void objects(){
         addObject(new Boot_vrachtoverslaan(),24, 16);
         addObject(new Boot_vrachtoverslaan(),24, 26);
-        addObject(new Trein_vrachtoverslaan(), 30, 3);
+        addObject(new Trein_vrachtoverslaan_tegenstander(), 30, 3);
         addObject(new Trein_vrachtoverslaan(), 30, 39);
         
         //zet containers neer
@@ -64,37 +64,29 @@ public class VrachtOverslaan extends Minigames
                 //maak eigen containers
                 if(randomContainers[x][y] == "container1")
                 {
-                    addObject(new Krat_vrachtoverslaan(), 10 + (2 * x), 24 + (2 * y));
+                    addObject(new Container1(), 10 + (2 * x), 24 + (2 * y));
                 }
                 else if(randomContainers[x][y] == "container2")
                 {
-                    addObject(new Dijk(), 10 + (2 * x), 24 + (2 * y));
+                    addObject(new Container2(), 10 + (2 * x) + 1, 24 + (2 * y));
                 }
                 else if(randomContainers[x][y] == "container3")
                 {
-                    addObject(new Border(), 10 + (2 * x), 24 + (2 * y));
-                }
-                else if(randomContainers[x][y] == "container4")
-                {
-                    addObject(new Spoor(), 10 + (2 * x), 24 + (2 * y));
+                    addObject(new Container3(), 10 + (2 * x) + 2, 24 + (2 * y));
                 }
                 
                 //maak containers tegenstander
                 if(randomContainers[x][y] == "container1")
                 {
-                    addObject(new Krat_vrachtoverslaan_tegenstander(), 10 + (2 * x), 18 - (2 * y));
+                    addObject(new Container1(), 10 + (2 * x), 18 - (2 * y));
                 }
                 else if(randomContainers[x][y] == "container2")
                 {
-                    addObject(new Dijk(), 10 + (2 * x), 18 - (2 * y));
+                    addObject(new Container2(), 10 + (2 * x) + 1, 18 - (2 * y));
                 }
                 else if(randomContainers[x][y] == "container3")
                 {
-                    addObject(new Border(), 10 + (2 * x), 18 - (2 * y));
-                }
-                else if(randomContainers[x][y] == "container4")
-                {
-                    addObject(new Spoor(), 10 + (2 * x), 18 - (2 * y));
+                    addObject(new Container3(), 10 + (2 * x) + 2, 18 - (2 * y));
                 }
             }
         }
@@ -132,25 +124,43 @@ public class VrachtOverslaan extends Minigames
         {
             for(int b = 0; b < x; b++)
             {
-                String containerType = "";
-                int random = Greenfoot.getRandomNumber(4);
+                //check eerst welke containers er nog passen
+                int maxRandom = 3;
+                //nog 3 vakjes over
+                if(b == x - 3)
+                {
+                    maxRandom = 3;
+                }
+                //nog 2 vakjes over
+                else if(b == x - 2)
+                {
+                    maxRandom = 2;
+                }
+                //nog 1 vakje over
+                else if(b == x - 1)
+                {
+                    maxRandom = 1;
+                }
+                //vul random containers in
+                int random = Greenfoot.getRandomNumber(maxRandom);
                 if(random == 0)
                 {
-                    containerType = "container1";
+                    array[b][a] = "container1";
                 }
                 else if(random == 1)
                 {
-                    containerType = "container2";
+                    array[b][a] = "container2";
+                    array[b+1][a] = "empty";
+                    b++;
                 }
                 else if(random == 2)
                 {
-                    containerType = "container3";
+                    array[b][a] = "container3";
+                    array[b+1][a] = "empty";
+                    array[b+2][a] = "empty";
+                    b += 2;
                 }
-                else if(random == 3)
-                {
-                    containerType = "container4";
-                }
-                array[b][a] = containerType;
+               
             }
         }
         

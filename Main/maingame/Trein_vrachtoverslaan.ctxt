@@ -2,9 +2,7 @@
 comment0.params=
 comment0.target=void\ act()
 comment1.params=
-comment1.target=void\ mount()
+comment1.target=void\ move()
 comment2.params=
-comment2.target=void\ move()
-comment3.params=
-comment3.target=void\ succes()
-numComments=4
+comment2.target=void\ place()
+numComments=3

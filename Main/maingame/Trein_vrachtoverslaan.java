@@ -14,50 +14,52 @@ public class Trein_vrachtoverslaan extends Vrachoverslaanobjecten
      */
     
     int load = 0;
+    boolean GOAAAN = false;
     public void act() 
     {
-        if(load == 7){
-            move();
+        if(Greenfoot.isKeyDown("t")){
+           GOAAAN = true;
         }
         
+        if(GOAAAN == true){
+            move();
+        }
         else{
-        mount();
+            place();
+        }
+        
+        
+        
     }
-    } 
     
-    public void mount(){
-        Actor container = getOneObjectAtOffset(0,0, Krat_vrachtoverslaan.class);
-        if(container != null){
-           load++;
-           getWorld().removeObject(container); 
-        }
-        else{
-            
-        }
-    }
     
     public void move(){
-        if(getX() == 19){
-            succes();
+        for(int y = -1; y <= 1; y+=2){
+            for(int x = -13; x <= 14; x += 2){
+                Actor container = getOneObjectAtOffset(x,y,Krat_vrachtoverslaan.class);
+                if(container != null){
+                    getWorld().removeObject(container);
+                }
+            }
         }
-        else if(getX() == 7){
-            setLocation(getX()+1,getY());
-            load = 0;
+        setImage("../images/vrachtoverslaan_treinGesloten.png");
+        
+        if(getX() == 49){
+            getWorld().addObject(new Trein_vrachtoverslaan(),0, 39);
+            GOAAAN = false;
+            getWorld().removeObject(this);
         }
         else{
-            setLocation(getX()+1,getY());
+            setLocation(getX() +1, getY());
+        }
+        
+    }
+    
+    void place(){
+        if(getX() < 30){
+            setLocation(getX() +1, getY());
         }
     }
     
-    void succes(){
-        int reply = JOptionPane.showConfirmDialog(null, "Gefeliciteerd, wilt u nog een keer spelen?", "Gewonnen!", JOptionPane.YES_NO_OPTION);
-            if (reply == JOptionPane.YES_OPTION){
-                 getWorld().removeObject(this);
-                 Greenfoot.setWorld(new VrachtOverslaan());
-            }
-            else if(reply == JOptionPane.NO_OPTION){
-                getWorld().removeObject(this);
-                Greenfoot.setWorld(new Menu());
-            }
-        }
-}
+    }
+

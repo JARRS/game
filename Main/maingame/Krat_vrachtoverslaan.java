@@ -16,7 +16,11 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
     boolean wordtgetild = false;
      public void act() 
     {
-        MouseInfo mouse = Greenfoot.getMouseInfo();
+       oppakken();
+    }  
+    
+    void oppakken(){
+         MouseInfo mouse = Greenfoot.getMouseInfo();
         int mx = 0;
         int my = 0;
         
@@ -42,6 +46,9 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
             
                 if((Greenfoot.mouseClicked(grijper) || Greenfoot.mouseClicked(xding)))                {
                 wordtgetild = false;
+                
+                if((getY() >= 38 && getY() <= 40) && (getX() >= 17 && getX() <= 34)){
+                }
 
                 }
                 return ;
@@ -51,6 +58,5 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
             wordtgetild = true;
 
         }
-        
-    }    
+    }
 }
