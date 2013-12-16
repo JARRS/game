@@ -13,7 +13,7 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    boolean wordtgetild = false;
+    Boolean wordtgetild = false;;
      public void act() 
     {
        oppakken();
@@ -32,7 +32,7 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
         Actor xding = getOneObjectAtOffset(0,0, kraanXding.class);
         //zorg ervoor dat de container opgepakt kan worden!
         
-        if(wordtgetild)
+        if(wordtgetild != true)
         {
                 if(mx <= 48 && mx >= 10)
                     {
@@ -44,19 +44,37 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
                 }
             
             
-                if((Greenfoot.mouseClicked(grijper) || Greenfoot.mouseClicked(xding)))                {
+                if((Greenfoot.mouseClicked(grijper) || Greenfoot.mouseClicked(xding)) && my % 2 == 0 && ruimteGenoeg())                {
                 wordtgetild = false;
                 
                 if((getY() >= 38 && getY() <= 40) && (getX() >= 17 && getX() <= 34)){
                 }
 
                 }
-                return ;
+                return;
         }
         if(mx == getX() && my == getY() && (Greenfoot.mouseClicked(grijper) || Greenfoot.mouseClicked(xding) ) )
         {
             wordtgetild = true;
+            /*
+            wordtgetild = "" + this;
+            wordtgetild = wordtgetild.substring(0, wordtgetild.indexOf("@"));
+            */
 
+        }
+    }
+    
+    boolean ruimteGenoeg()
+    {
+        //check of er containers naast of onder staan, afhankelijk van het type container dat je vast hebt
+        
+        if(getOneIntersectingObject(Container1.class) == null && getOneIntersectingObject(Container2.class) == null && getOneIntersectingObject(Container3.class) == null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
