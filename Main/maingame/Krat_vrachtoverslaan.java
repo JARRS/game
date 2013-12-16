@@ -44,7 +44,7 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
                 }
             
             
-                if((Greenfoot.mouseClicked(grijper) || Greenfoot.mouseClicked(xding)) && my % 2 == 0/* && ruimteGenoeg()*/)                {
+                if((Greenfoot.mouseClicked(grijper) || Greenfoot.mouseClicked(xding)) && my % 2 == 0 && ruimteGenoeg())                {
                 wordtgetild = false;
                 
                 if((getY() >= 38 && getY() <= 40) && (getX() >= 17 && getX() <= 34)){
@@ -53,7 +53,7 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
                 }
                 return;
         }
-        if(mx == getX() && my == getY() && (Greenfoot.mouseClicked(grijper) || Greenfoot.mouseClicked(xding) && wordtgetild != true) )
+        if(mx == getX() && my == getY() && (Greenfoot.mouseClicked(grijper) || Greenfoot.mouseClicked(xding)) )
         {
             wordtgetild = true;
             /*
@@ -64,7 +64,7 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
         }
     }
     
-    /*boolean ruimteGenoeg()
+    boolean ruimteGenoeg()
     {
         //check of er containers naast of onder staan, afhankelijk van het type container dat je vast hebt
         
@@ -76,5 +76,5 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
         {
             return false;
         }
-    }*/
+    }
 }
