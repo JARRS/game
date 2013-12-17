@@ -12,6 +12,7 @@ public class kraanGrijper extends Vrachoverslaanobjecten
      * Act - do whatever the kraanGrijper wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    boolean opgepakt = false;
     public void act() 
     {
         MouseInfo mouse = Greenfoot.getMouseInfo(); 
@@ -35,4 +36,12 @@ public class kraanGrijper extends Vrachoverslaanobjecten
             setLocation(getX(), my);
         }
     }    
+    
+    public void setOpgepakt(boolean input){
+        opgepakt = input;
+    }
+    
+    public boolean getOpgepakt(){
+        return opgepakt;
+    }
 }

@@ -29,6 +29,7 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
            my = mouse.getY();  
         }  
         Actor grijper = getOneObjectAtOffset(0,0, kraanGrijper.class);
+        kraanGrijper grijpObject = (kraanGrijper) grijper;
         Actor xding = getOneObjectAtOffset(0,0, kraanXding.class);
         //zorg ervoor dat de container opgepakt kan worden!
         
@@ -46,6 +47,7 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
             
                 if((Greenfoot.mouseClicked(grijper) || Greenfoot.mouseClicked(xding)) && my % 2 == 0 && ruimteGenoeg())                {
                 wordtgetild = false;
+                grijpObject.setOpgepakt(false);
                 
                 if((getY() >= 38 && getY() <= 40) && (getX() >= 17 && getX() <= 34)){
                 }
@@ -53,9 +55,10 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
                 }
                 return;
         }
-        if(mx == getX() && my == getY() && (Greenfoot.mouseClicked(grijper) || Greenfoot.mouseClicked(xding)) )
+        if(mx == getX() && my == getY() && (Greenfoot.mouseClicked(grijper) || Greenfoot.mouseClicked(xding)) && grijpObject.getOpgepakt() == false )
         {
             wordtgetild = true;
+            grijpObject.setOpgepakt(true);
             /*
             wordtgetild = "" + this;
             wordtgetild = wordtgetild.substring(0, wordtgetild.indexOf("@"));
