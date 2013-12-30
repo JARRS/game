@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.awt.Color; 
 /**
  * Write a description of class VrachtOverslaan here.
  * 
@@ -105,7 +105,9 @@ public class VrachtOverslaan extends Minigames
         }
         }
         */
-       
+        addObject(new BalansBalk(), 46, 26);
+        addObject(new AanwijsBalk(), 46, 26);
+        
         addObject(new KraanBasis(), 29, 8);
         addObject(new KraanBasis(), 29, 34);
         addObject(new KraanGrijper_tegenstander(), 22, 18);
@@ -113,6 +115,7 @@ public class VrachtOverslaan extends Minigames
         addObject(new KraanXding_tegenstander(), 22, 10);
         addObject(new kraanXding(), 22, 32);
         taskbar();
+        
     }
     
     public String[][] getRandomContainers(int y, int x)
@@ -166,6 +169,6 @@ public class VrachtOverslaan extends Minigames
         
         return array;
     }
-   
+    
 }
 

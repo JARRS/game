@@ -13,7 +13,9 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    Boolean wordtgetild = false;;
+    Boolean wordtgetild = false;
+   
+    
      public void act() 
     {
        oppakken();
@@ -59,11 +61,49 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
         {
             wordtgetild = true;
             grijpObject.setOpgepakt(true);
-            /*
-            wordtgetild = "" + this;
-            wordtgetild = wordtgetild.substring(0, wordtgetild.indexOf("@"));
-            */
-
+    
+            //verander de balans van de boot
+            int balansKant = 0;
+            if(getY() == 26)
+            {
+                balansKant = 0;
+            }
+            else if(getY() == 24)
+            {
+                balansKant = 1;
+            }
+            else if(getY() == 28)
+            {
+                balansKant = -1;
+            }
+                    
+            String containerType = "" + this;
+            //containerType = containerType.substring(0, containerType.indexOf("@"));
+            //containerType = (String) containerType;
+            int testLength = containerType.length();
+ 
+            
+            if(containerType.contains("Container1"))
+            {
+                getWorld().removeObjects(getWorld().getObjects(AanwijsBalk.class));
+                eigenBalans += 1 * balansKant;
+                getWorld().addObject(new AanwijsBalk(), 46, 26 + (eigenBalans / 2));
+                //balansBalk.veranderBalans(1 * balansKant);
+            }
+            else if(containerType.contains( "Container2"))
+            {
+                getWorld().removeObjects(getWorld().getObjects(AanwijsBalk.class));
+                eigenBalans += 2 * balansKant;
+                getWorld().addObject(new AanwijsBalk(), 46, 26 + (eigenBalans / 2));
+                //balansBalk.veranderBalans(2 * balansKant);
+            }
+            else if(containerType.contains("Container3"))
+            {
+                getWorld().removeObjects(getWorld().getObjects(AanwijsBalk.class));
+                eigenBalans += 3 * balansKant;
+                getWorld().addObject(new AanwijsBalk(), 46, 26 + (eigenBalans / 2));
+                //balansBalk.veranderBalans(3 * balansKant);
+            }
         }
     }
     
