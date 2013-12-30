@@ -59,6 +59,38 @@ public class Trein_vrachtoverslaan extends Vrachoverslaanobjecten
         if(getX() < 30){
             setLocation(getX() +1, getY());
         }
+        if(getX() == 29){
+            // trein is 30,39
+            
+            //grijper linker bovenhoek = 10,24
+            //grijper rechter onderhoek = 48,40
+            for(int y = -15; y <= 1; y++){
+                for(int x = -19; x <= 19; x++){
+                    Actor deGrijper = getOneObjectAtOffset(x,y,kraanGrijper.class);
+                    
+                    if(deGrijper != null){
+                        int grijperX = deGrijper.getX();
+                        int grijperY = deGrijper.getY();
+                        getWorld().removeObject(deGrijper);
+                        getWorld().addObject(new kraanGrijper(),grijperX,grijperY);
+                        break;
+                    }
+                }
+            }
+            //kraan links = 10,32
+            //kraan rechts = 48,32
+            for(int x = -20; x <= 18; x++){
+                Actor deKraan = getOneObjectAtOffset(x,-7, kraanXding.class);
+                
+                if(deKraan != null){
+                    int kraanX = deKraan.getX();
+                    int kraanY = deKraan.getY();
+                    getWorld().removeObject(deKraan);
+                    getWorld().addObject(new kraanXding(), kraanX, kraanY);
+                }
+            }
+            
+        }
     }
     
     }

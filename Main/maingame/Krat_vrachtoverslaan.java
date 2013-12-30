@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 /**
  * Write a description of class Krat_vrachtoverslaan here.
@@ -82,27 +83,70 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
             //containerType = (String) containerType;
             int testLength = containerType.length();
  
+            int hisx = getX();
+            int hisy = getY();
+            Actor grijpertje = getOneObjectAtOffset(0,0,kraanGrijper.class);
+            Actor kraantje = getOneObjectAtOffset(0,0,kraanXding.class);
             
             if(containerType.contains("Container1"))
             {
                 getWorld().removeObjects(getWorld().getObjects(AanwijsBalk.class));
-                eigenBalans += 1 * balansKant;
-                getWorld().addObject(new AanwijsBalk(), 46, 26 + (eigenBalans / 2));
+                //eigenBalans += 1 * balansKant;
+                EigenBoot().setBalans(1 * balansKant);
+                getWorld().addObject(new AanwijsBalk(), 46, 26 + (EigenBoot().getBalans() / 2));
                 //balansBalk.veranderBalans(1 * balansKant);
+                
+                Container1 container1 = new Container1();
+                getWorld().addObject(container1, hisx, hisy);
+                
+                getWorld().removeObject(grijpertje);
+                getWorld().addObject(new kraanGrijper(),hisx, hisy);
+                
+                getWorld().removeObject(kraantje);
+                getWorld().addObject(new kraanXding(), hisx, 32);
+                
+                container1.wordtgetild = true;
+                getWorld().removeObject(this);
             }
             else if(containerType.contains( "Container2"))
             {
                 getWorld().removeObjects(getWorld().getObjects(AanwijsBalk.class));
-                eigenBalans += 2 * balansKant;
-                getWorld().addObject(new AanwijsBalk(), 46, 26 + (eigenBalans / 2));
+                //eigenBalans += 2 * balansKant;
+                EigenBoot().setBalans(2 * balansKant);
+                getWorld().addObject(new AanwijsBalk(), 46, 26 + (EigenBoot().getBalans() / 2));
                 //balansBalk.veranderBalans(2 * balansKant);
+                
+                Container2 container2 = new Container2();
+                getWorld().addObject(container2, hisx, hisy);
+                
+                getWorld().removeObject(grijpertje);
+                getWorld().addObject(new kraanGrijper(),hisx, hisy);
+                
+                getWorld().removeObject(kraantje);
+                getWorld().addObject(new kraanXding(), hisx, 32);
+                
+                container2.wordtgetild = true;
+                getWorld().removeObject(this);
             }
             else if(containerType.contains("Container3"))
             {
                 getWorld().removeObjects(getWorld().getObjects(AanwijsBalk.class));
-                eigenBalans += 3 * balansKant;
-                getWorld().addObject(new AanwijsBalk(), 46, 26 + (eigenBalans / 2));
+                //eigenBalans += 3 * balansKant;
+                EigenBoot().setBalans(3 * balansKant);
+                getWorld().addObject(new AanwijsBalk(), 46, 26 + (EigenBoot().getBalans() / 2));
                 //balansBalk.veranderBalans(3 * balansKant);
+                
+                Container3 container3 = new Container3();
+                getWorld().addObject(container3, hisx, hisy);
+                
+                getWorld().removeObject(grijpertje);
+                getWorld().addObject(new kraanGrijper(),hisx, hisy);
+                
+                getWorld().removeObject(kraantje);
+                getWorld().addObject(new kraanXding(), hisx, 32);
+                
+                container3.wordtgetild = true;
+                getWorld().removeObject(this);
             }
         }
     }

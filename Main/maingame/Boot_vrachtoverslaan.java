@@ -12,6 +12,7 @@ public class Boot_vrachtoverslaan extends Vrachoverslaanobjecten
      * Act - do whatever the Boot_vrachtoverslaan wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    private int eigenBalans = 0;
     public void act() 
     {
         /*entrance();*/
@@ -22,4 +23,14 @@ public class Boot_vrachtoverslaan extends Vrachoverslaanobjecten
             setLocation(getX()+1, getY());
         }
     }*/
+    
+    public int getBalans()
+    {
+        return this.eigenBalans;
+    }
+    
+    public void setBalans(int verschil)
+    {
+        this.eigenBalans += verschil;
+    }
 }
