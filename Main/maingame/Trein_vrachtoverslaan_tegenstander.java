@@ -12,8 +12,58 @@ public class Trein_vrachtoverslaan_tegenstander extends Vrachoverslaanobjecten
      * Act - do whatever the Trein_vrachtoverslaan_tegenstander wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    boolean GOAAAN = false;
+    double currentX = 0;
     public void act() 
     {
-        // Add your action code here.
+        if(GOAAAN == true){
+            move();
+        }
+        else{
+            place();
+        }
+        
     }    
+    
+    public void gaRijden()
+    {
+        GOAAAN = true;
+    }
+    
+    public boolean isAanHetRijden()
+    {
+        return GOAAAN;
+    }
+    
+    public void move(){
+        
+        for(int y = -1; y <= 1; y+=2){
+            for(int x = -13; x <= 14; x += 2){
+                Actor container = getOneObjectAtOffset(x,y,Krat_vrachtoverslaan_tegenstander.class);
+                if(container != null){
+                    getWorld().removeObject(container);
+                }
+            }
+        }
+        setImage("../images/vrachtoverslaan_treinGesloten.png");
+        
+        if(getX() == 49){
+            currentX = 0;
+            //getWorld().addObject(new Trein_vrachtoverslaan(),0, 3);
+            
+            GOAAAN = false;
+        }
+        else{
+            currentX += 0.1;
+        }
+        setLocation((int)currentX, getY());
+    }
+     
+    void place(){
+        setImage("../images/vrachtoverslaan_trein.png");
+        if(getX() < 30){
+            currentX += 0.1;
+        }
+        setLocation((int)currentX, getY());
+    }
 }

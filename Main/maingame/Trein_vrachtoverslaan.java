@@ -15,6 +15,7 @@ public class Trein_vrachtoverslaan extends Vrachoverslaanobjecten
     
     int load = 0;
     boolean GOAAAN = false;
+    double currentX = 0;
     public void act() 
     {
         if(Greenfoot.isKeyDown("t")){
@@ -45,19 +46,37 @@ public class Trein_vrachtoverslaan extends Vrachoverslaanobjecten
         setImage("../images/vrachtoverslaan_treinGesloten.png");
         
         if(getX() == 49){
-            getWorld().addObject(new Trein_vrachtoverslaan(),0, 39);
+            VrachtOverslaan wereld = (VrachtOverslaan) getWorld();
+            int scheepsVracht = wereld.getScheepsVracht();
+            if(scheepsVracht == 0){
+                int reply = JOptionPane.showConfirmDialog(null, "Gefeliciteerd u heeft gewonnen! Wilt u nog een keer spelen?", "Gewonnen!", JOptionPane.YES_NO_OPTION);
+                if (reply == JOptionPane.YES_OPTION){
+                    getWorld().removeObject(this);
+                    Greenfoot.setWorld(new VrachtOverslaan());
+                    return;
+                }
+                else if(reply == JOptionPane.NO_OPTION){
+                    Greenfoot.setWorld(new Menu());
+                    return;
+                }
+            }
+            
+            currentX = 0;
+            //getWorld().addObject(new Trein_vrachtoverslaan(),0, 3);
+            
             GOAAAN = false;
-            getWorld().removeObject(this);
+            
         }
         else{
-            setLocation(getX() +1, getY());
+            currentX += 0.1;
         }
-        
+        setLocation((int)currentX, getY());
     }
     
     void place(){
+        setImage("../images/vrachtoverslaan_trein.png");
         if(getX() < 30){
-            setLocation(getX() +1, getY());
+            currentX += 0.1;
         }
         if(getX() == 29){
             // trein is 30,39
@@ -91,6 +110,7 @@ public class Trein_vrachtoverslaan extends Vrachoverslaanobjecten
             }
             
         }
+        setLocation((int)currentX, getY());
     }
     
     }

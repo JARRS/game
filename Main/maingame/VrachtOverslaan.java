@@ -13,7 +13,8 @@ public class VrachtOverslaan extends Minigames
      * Constructor for objects of class VrachtOverslaan.
      * 
      */
-    
+    int scheepsVracht = 0;
+    int scheepsVrachtTegenstander = 0;
     public VrachtOverslaan()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -51,7 +52,7 @@ public class VrachtOverslaan extends Minigames
         addObject(new Boot_vrachtoverslaan(),24, 16);
         addObject(new Boot_vrachtoverslaan(),24, 26);
         addObject(new Trein_vrachtoverslaan_tegenstander(), 30, 3);
-        addObject(new Trein_vrachtoverslaan(), 30, 39);
+        addObject(new Trein_vrachtoverslaan(), 30, 39);  
         
         //zet containers neer
         String[][] randomContainers = getRandomContainers(3, 15);
@@ -61,36 +62,44 @@ public class VrachtOverslaan extends Minigames
         {
             for(int x = 0; x <= 14; x++)
             {
+                //maak containers tegenstander
+                if(randomContainers[x][y] == "container1")
+                {
+                    addObject(new Container1_tegenstander(), 10 + (2 * x), 18 - (2 * y));
+                    scheepsVrachtTegenstander++;
+                }
+                else if(randomContainers[x][y] == "container2")
+                {
+                    addObject(new Container2_tegenstander(), 10 + (2 * x) + 1, 18 - (2 * y));
+                    scheepsVrachtTegenstander++;
+                }
+                else if(randomContainers[x][y] == "container3")
+                {
+                    addObject(new Container3_tegenstander(), 10 + (2 * x) + 2, 18 - (2 * y));
+                    scheepsVrachtTegenstander++;
+                }
+                
                 //maak eigen containers
                 if(randomContainers[x][y] == "container1")
                 {
                     addObject(new Container1(), 10 + (2 * x), 24 + (2 * y));
+                    scheepsVracht++;
                 }
                 else if(randomContainers[x][y] == "container2")
                 {
                     addObject(new Container2(), 10 + (2 * x) + 1, 24 + (2 * y));
+                    scheepsVracht++;
                 }
                 else if(randomContainers[x][y] == "container3")
                 {
                     addObject(new Container3(), 10 + (2 * x) + 2, 24 + (2 * y));
+                    scheepsVracht++;
                 }
                 
-                //maak containers tegenstander
-                if(randomContainers[x][y] == "container1")
-                {
-                    addObject(new Container1(), 10 + (2 * x), 18 - (2 * y));
-                }
-                else if(randomContainers[x][y] == "container2")
-                {
-                    addObject(new Container2(), 10 + (2 * x) + 1, 18 - (2 * y));
-                }
-                else if(randomContainers[x][y] == "container3")
-                {
-                    addObject(new Container3(), 10 + (2 * x) + 2, 18 - (2 * y));
-                }
+                
             }
         }
-        
+             
         /*
          * ROBINS STUKJE VOOR ALS JE HET NOG WILT TERUGZETTEN
         for(int y = 14; y <= 28; y+= 2){
@@ -110,12 +119,19 @@ public class VrachtOverslaan extends Minigames
         
         addObject(new KraanBasis(), 29, 8);
         addObject(new KraanBasis(), 29, 34);
-        addObject(new KraanGrijper_tegenstander(), 22, 18);
+        
+        KraanGrijper_tegenstander tegenstander = new KraanGrijper_tegenstander();
+        addObject(tegenstander, 22, 18);
         addObject(new kraanGrijper(), 22, 24);
         addObject(new KraanXding_tegenstander(), 22, 10);
         addObject(new kraanXding(), 22, 32);
+        
+        ScoreLabel VrachtOverslaanScore = new ScoreLabel();
+        addObject(VrachtOverslaanScore, 13, 33);
         taskbar();
         
+        //geef de tegenstander de locaties van de containers mee
+        tegenstander.acceptContainerMap(randomContainers);
     }
     
     public String[][] getRandomContainers(int y, int x)
@@ -168,6 +184,14 @@ public class VrachtOverslaan extends Minigames
         }
         
         return array;
+    }
+    
+    public int getScheepsVracht(){
+        return scheepsVracht;
+    }
+    
+    public void setScheepsVracht(int scheepsVracht){
+        this.scheepsVracht = scheepsVracht;
     }
     
 }

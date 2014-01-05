@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ act()
+comment1.params=
+comment1.target=ScoreLabel()
+comment2.params=minuten\ seconden
+comment2.target=void\ setScore(java.lang.String,\ java.lang.String)
+comment3.params=seconden\ minuten
+comment3.target=void\ giveScore(java.lang.String,\ java.lang.String)
+numComments=4

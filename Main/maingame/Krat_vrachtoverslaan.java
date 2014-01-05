@@ -85,6 +85,15 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
  
             int hisx = getX();
             int hisy = getY();
+            
+            //checkt of x op de boot viel
+            if((hisx >= 10 && hisx <= 38) && (hisy >= 24 && hisy <= 28)){
+                VrachtOverslaan wereld = (VrachtOverslaan) getWorld();
+                int nuVracht = wereld.getScheepsVracht();
+                nuVracht--;
+                wereld.setScheepsVracht(nuVracht);
+            }
+            
             Actor grijpertje = getOneObjectAtOffset(0,0,kraanGrijper.class);
             Actor kraantje = getOneObjectAtOffset(0,0,kraanXding.class);
             
