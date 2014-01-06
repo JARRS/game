@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
  */
 public class KraanGrijper_tegenstander extends Vrachoverslaanobjecten
 {
+    public double kraanSnelheid = 0.1;
     
     public class coord 
     {
@@ -39,7 +40,7 @@ public class KraanGrijper_tegenstander extends Vrachoverslaanobjecten
     public void acceptContainerMap(String[][] containerMap)
     {
         planRegel regel = null;
-        
+        boolean treinIsVol = false;
         movePlan = new ArrayList<planRegel>();
         
         // array met treinstel, x- en y-positie in het treinstel
@@ -49,11 +50,10 @@ public class KraanGrijper_tegenstander extends Vrachoverslaanobjecten
                
             //STAP 1: zoek naar grootste vrije ruimte op trein
             regel = null;
-             
+            treinIsVol = false;
             int grootsteVrijeRuimte = 0;
             coord GVRcoord = null;
             int GVRtreinstel = 0;
-            boolean treinIsVol = false;
             
             do 
             {
@@ -86,10 +86,20 @@ public class KraanGrijper_tegenstander extends Vrachoverslaanobjecten
             //STAP 2: wat is de grootste contsainer op de boot, kleiner of gelijkaan de grootste vrije ruimte
             regel = getVolgendeContainerOpBoot(containerMap, grootsteVrijeRuimte);
             
-            //Als er iets gevonden is, maak een planregel aan
-          
-            if (regel != null)
+            if (regel == null)
             {
+                // Er is geen planregel: dus boot is leeg OF er zijn geen containers meer die passen op de trein
+                if (!IsBootLeeg(containerMap))
+                {
+                    // er zijn nog containers, dus laat trein gaan
+                    treinIsVol=true;
+                    // Let op! dit moeten we bij de vorige planregel noteren!
+                    movePlan.get(movePlan.size()-1).treinVol = true;
+                }
+            }
+            else
+            {   //Als er iets gevonden is, maak een planregel aan
+
                 // als trein nu vol is, dan moet de trein rijden bij de vorige container
                 if (treinIsVol)
                 {
@@ -109,7 +119,7 @@ public class KraanGrijper_tegenstander extends Vrachoverslaanobjecten
                 }
                 
             }
-        } while (regel != null);
+        } while (regel != null || treinIsVol);
         
         //de tegenstander is klaar met het maken van het plan
     
@@ -140,6 +150,23 @@ public class KraanGrijper_tegenstander extends Vrachoverslaanobjecten
             }
         }
         return null;
+    }
+    
+    
+    private boolean IsBootLeeg(String[][] containerMap)
+    {            
+        for(int y = 0; y < 3; y++)
+        {
+            for(int x = 0; x < 15; x++)
+            {
+                if(containerMap[x][y].contains("container"))
+                {
+                    return false;
+                }
+            }
+        }
+        
+        return true;
     }
     
     private int getVrijeRuimte(boolean[] cell, int x)
@@ -192,13 +219,18 @@ public class KraanGrijper_tegenstander extends Vrachoverslaanobjecten
         }
         else if(tegenstanderStatus == Status.MOVETO_ORIGIN_X)
         {
-            if(getX() == bestemmingX)
+            //check of de trein in het station staat
+            Trein_vrachtoverslaan_tegenstander trein = (Trein_vrachtoverslaan_tegenstander) getWorld().getObjects(Trein_vrachtoverslaan_tegenstander.class).get(0);
+            if(trein.isInStation())
             {
-                tegenstanderStatus = Status.MOVETO_ORIGIN_Y;
-                
-            }
-            else{
-                currentX = currentX + Math.signum(bestemmingX - currentX) * 0.05;
+                if(getX() == bestemmingX)
+                {
+                    tegenstanderStatus = Status.MOVETO_ORIGIN_Y;
+                    
+                }
+                else{
+                    currentX = currentX + Math.signum(bestemmingX - currentX) * kraanSnelheid;
+                }
             }
             
         }
@@ -217,7 +249,7 @@ public class KraanGrijper_tegenstander extends Vrachoverslaanobjecten
                 currentContainer = (Krat_vrachtoverslaan_tegenstander) containerActor;
             }
             else{
-                currentY = currentY + Math.signum(bestemmingY - currentY) * 0.05;
+                currentY = currentY + Math.signum(bestemmingY - currentY) * kraanSnelheid;
             }
 
         }
@@ -229,7 +261,7 @@ public class KraanGrijper_tegenstander extends Vrachoverslaanobjecten
                 
             }
             else{
-                currentX = currentX + Math.signum(bestemmingX - currentX) * 0.05;
+                currentX = currentX + Math.signum(bestemmingX - currentX) * kraanSnelheid;
                
                 //zorg ervoor dat de container meebeweegt  
                 currentContainer.setLocation((int)currentX, (int)currentY);
@@ -252,7 +284,7 @@ public class KraanGrijper_tegenstander extends Vrachoverslaanobjecten
                 
             }
             else{
-                currentY = currentY + Math.signum(bestemmingY - currentY) * 0.05;
+                currentY = currentY + Math.signum(bestemmingY - currentY) * kraanSnelheid;
                 
                 //zorg ervoor dat de container meebeweegt
                 currentContainer.setLocation((int)currentX, (int)currentY);
@@ -304,3 +336,6 @@ public class KraanGrijper_tegenstander extends Vrachoverslaanobjecten
         
     }    
 }
+
+
+

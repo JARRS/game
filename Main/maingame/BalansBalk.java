@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import javax.swing.JOptionPane;
 /**
  * Write a description of class Balansalk here.
  * 
@@ -11,13 +11,8 @@ public class BalansBalk extends Vrachoverslaanobjecten
    
     
     
-    public void act() 
-    {
-        
-    }
-    /*public void veranderBalans(int getal)
-    {
-        //balans += getal;
-        
-    }*/
+    
+    
+    
+    
 }

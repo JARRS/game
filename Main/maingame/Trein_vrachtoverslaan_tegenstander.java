@@ -13,6 +13,7 @@ public class Trein_vrachtoverslaan_tegenstander extends Vrachoverslaanobjecten
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     boolean GOAAAN = false;
+    boolean isInStation = false;
     double currentX = 0;
     public void act() 
     {
@@ -21,6 +22,10 @@ public class Trein_vrachtoverslaan_tegenstander extends Vrachoverslaanobjecten
         }
         else{
             place();
+        }
+        if(getX() == 30)
+        {
+            isInStation = true;
         }
         
     }    
@@ -35,8 +40,13 @@ public class Trein_vrachtoverslaan_tegenstander extends Vrachoverslaanobjecten
         return GOAAAN;
     }
     
+    public boolean isInStation()
+    {
+        return isInStation;
+    }
+    
     public void move(){
-        
+        isInStation = false;
         for(int y = -1; y <= 1; y+=2){
             for(int x = -13; x <= 14; x += 2){
                 Actor container = getOneObjectAtOffset(x,y,Krat_vrachtoverslaan_tegenstander.class);

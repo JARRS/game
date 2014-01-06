@@ -13,13 +13,13 @@ public class ScoreLabel extends Actor
     int secondenGetal = 00;
     int minutenGetal = 00;
     int teller = 0;
-    ScoreVrachtoverslaan deScore = (ScoreVrachtoverslaan) new ScoreVrachtoverslaan();
     String vrachtOverslaanScore = "";
+    //HighscoreVrachtOverslaan highscore = (HighscoreVrachtOverslaan) getOneObjectAtOffset(4,0,ScoreLabel.class);
     
     public void act() 
     {
        teller++;
-       if(teller == 25){
+       if(teller == 60){
            secondenGetal ++;
            if(secondenGetal == 60){
                minutenGetal++;
@@ -49,7 +49,18 @@ public class ScoreLabel extends Actor
     img.drawString ("Tijd: " + minuten + ":" + seconden, 2, 15);  
     }  
     
-   public void giveScore(String seconden, String minuten){
-       deScore.setScore(vrachtOverslaanScore);
+   public String getScore(){
+       return vrachtOverslaanScore;
     }
+    
+   public int getMinuten(){
+       return minutenGetal;
+    }
+    
+   public int getSeconden(){
+       return secondenGetal;
+    }
+    
+   
+   
 }  

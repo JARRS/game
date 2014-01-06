@@ -26,6 +26,7 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
          MouseInfo mouse = Greenfoot.getMouseInfo();
         int mx = 0;
         int my = 0;
+        String containerType = "" + this;
         
         if(mouse!=null){  
            mx = mouse.getX();  
@@ -48,13 +49,50 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
                 }
             
             
-                if((Greenfoot.mouseClicked(grijper) || Greenfoot.mouseClicked(xding)) && my % 2 == 0 && ruimteGenoeg())                {
-                wordtgetild = false;
-                grijpObject.setOpgepakt(false);
+                if((Greenfoot.mouseClicked(grijper) || Greenfoot.mouseClicked(xding)) && my % 2 == 0 && ruimteGenoeg()) 
+                {
+                    wordtgetild = false;
+                    grijpObject.setOpgepakt(false);
+                    //maak de balans weer goed waneer je een container weer op de boot zet
+                    if(getY() >= 24 && getY() <= 28)
+                    {
+                        int balansKant = 0;
+                        if(getY() == 26)
+                        {
+                            balansKant = 0;
+                        }
+                        else if(getY() == 24)
+                        {
+                            balansKant = -1;
+                        }
+                        else if(getY() == 28)
+                        {
+                            balansKant = 1;
+                        }
+                    
+                        if(containerType.contains( "Container1"))
+                        {           
+                            EigenBoot().setBalans(1 * balansKant);
+                        
+                        }
+                        else if(containerType.contains( "Container2"))
+                        {
+                            EigenBoot().setBalans(2 * balansKant);
+                        }
+                        else if(containerType.contains( "Container3"))
+                        {
+                            EigenBoot().setBalans(3 * balansKant);
+                        }
+                             
                 
-                if((getY() >= 38 && getY() <= 40) && (getX() >= 17 && getX() <= 34)){
-                }
-
+                
+                    }
+                    if((mx >= 10 && mx <= 38) && (my >= 24 && my <= 28)){
+                        VrachtOverslaan wereld = (VrachtOverslaan) getWorld();
+                        int nuVracht = wereld.getScheepsVracht();
+                        nuVracht++;
+                        wereld.setScheepsVracht(nuVracht);
+                    }
                 }
                 return;
         }
@@ -78,7 +116,7 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
                 balansKant = -1;
             }
                     
-            String containerType = "" + this;
+            
             //containerType = containerType.substring(0, containerType.indexOf("@"));
             //containerType = (String) containerType;
             int testLength = containerType.length();
@@ -99,12 +137,8 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
             
             if(containerType.contains("Container1"))
             {
-                getWorld().removeObjects(getWorld().getObjects(AanwijsBalk.class));
-                //eigenBalans += 1 * balansKant;
                 EigenBoot().setBalans(1 * balansKant);
-                getWorld().addObject(new AanwijsBalk(), 46, 26 + (EigenBoot().getBalans() / 2));
-                //balansBalk.veranderBalans(1 * balansKant);
-                
+
                 Container1 container1 = new Container1();
                 getWorld().addObject(container1, hisx, hisy);
                 
@@ -119,11 +153,7 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
             }
             else if(containerType.contains( "Container2"))
             {
-                getWorld().removeObjects(getWorld().getObjects(AanwijsBalk.class));
-                //eigenBalans += 2 * balansKant;
                 EigenBoot().setBalans(2 * balansKant);
-                getWorld().addObject(new AanwijsBalk(), 46, 26 + (EigenBoot().getBalans() / 2));
-                //balansBalk.veranderBalans(2 * balansKant);
                 
                 Container2 container2 = new Container2();
                 getWorld().addObject(container2, hisx, hisy);
@@ -139,11 +169,7 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
             }
             else if(containerType.contains("Container3"))
             {
-                getWorld().removeObjects(getWorld().getObjects(AanwijsBalk.class));
-                //eigenBalans += 3 * balansKant;
                 EigenBoot().setBalans(3 * balansKant);
-                getWorld().addObject(new AanwijsBalk(), 46, 26 + (EigenBoot().getBalans() / 2));
-                //balansBalk.veranderBalans(3 * balansKant);
                 
                 Container3 container3 = new Container3();
                 getWorld().addObject(container3, hisx, hisy);

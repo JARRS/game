@@ -28,26 +28,32 @@ public class VrachtOverslaan extends Minigames
     void fill(){
         for(int y = 0; y < 42; y++){
             for(int x = 0; x < 50; x++){
-                if(y == 2 || y == 4 || y == 40 || y == 38){
-                    addObject(new Spoor(), x, y);
-                }
+               
                 
-                else if(y <= 12  || y >= 30){
+                if(y <= 12  || y >= 30){
                     addObject(new Dijk(), x, y);
                 }
                 
                 else if(y == 21){
                     addObject(new Border(), x, y);
                 }
-                
-                
+               
             }
         }
         
+        for(int y = 0; y < 42; y++){
+            for(int x = 0; x < 50; x++){
+               
+                if((y == 3 || y == 39) && x  % 2 == 0){
+                    addObject(new Spoor(), x, y);
+                }
+            }
+        }
         
     }
    
-    
+    ScoreLabel VrachtOverslaanScore = new ScoreLabel();
+    public static HighscoreVrachtOverslaan Highscore = new HighscoreVrachtOverslaan();
     void objects(){
         addObject(new Boot_vrachtoverslaan(),24, 16);
         addObject(new Boot_vrachtoverslaan(),24, 26);
@@ -126,9 +132,11 @@ public class VrachtOverslaan extends Minigames
         addObject(new KraanXding_tegenstander(), 22, 10);
         addObject(new kraanXding(), 22, 32);
         
-        ScoreLabel VrachtOverslaanScore = new ScoreLabel();
-        addObject(VrachtOverslaanScore, 13, 33);
+        
+        
         taskbar();
+        addObject(VrachtOverslaanScore, 12, 0);
+        //addObject(Highscore,16,0);
         
         //geef de tegenstander de locaties van de containers mee
         tegenstander.acceptContainerMap(randomContainers);
@@ -194,5 +202,18 @@ public class VrachtOverslaan extends Minigames
         this.scheepsVracht = scheepsVracht;
     }
     
+    public void sendScore(){
+        String score = VrachtOverslaanScore.getScore();
+        /*Highscores highscore = new Highscores();
+        highscore.setScore(score);*/
+        if(Highscore.getMinuten() < VrachtOverslaanScore.getMinuten()){
+            Highscore.setScore(score);
+        }
+        
+        else if(Highscore.getMinuten() == VrachtOverslaanScore.getMinuten() && Highscore.getSeconden() < VrachtOverslaanScore.getSeconden()){
+            Highscore.setScore(score);
+        }
+        
+    }
 }
 

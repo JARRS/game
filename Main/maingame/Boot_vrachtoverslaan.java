@@ -32,5 +32,7 @@ public class Boot_vrachtoverslaan extends Vrachoverslaanobjecten
     public void setBalans(int verschil)
     {
         this.eigenBalans += verschil;
+        getWorld().removeObjects(getWorld().getObjects(AanwijsBalk.class));
+        getWorld().addObject(new AanwijsBalk(), 46, 26 + getBalans() / 2);
     }
 }

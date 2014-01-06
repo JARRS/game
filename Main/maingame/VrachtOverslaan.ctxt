@@ -11,4 +11,6 @@ comment4.params=
 comment4.target=int\ getScheepsVracht()
 comment5.params=scheepsVracht
 comment5.target=void\ setScheepsVracht(int)
-numComments=6
+comment6.params=
+comment6.target=void\ sendScore()
+numComments=7
