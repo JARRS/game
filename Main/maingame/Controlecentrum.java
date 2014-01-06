@@ -23,35 +23,45 @@ public class Controlecentrum extends Minigames
     
     /* maakt controlehaven  */
     void fill(){
+        /* "onderste stuk" */
         for (int y = 38; y < 45; y++){
             for(int x = 0; x < 52; x++){
                  addObject(new controleHaven(), x, y);
                
                 }
             }
-        /* "linker" stuk */
+       
+            /* "linker" stuk */
         for (int y = 20; y < 40; y++){
             for(int x = 0; x < 4; x++){
                 addObject(new controleHaven(), x, y);
 
             }
         }
+       
         
-        /* "middel" stuk */
+            /* "middel" stuk */
         for (int y = 20; y < 40; y++){
             for(int x = 22; x < 27; x++){
                addObject(new controleHaven(), x, y);
 
             }
         }
-        
-        
-        /* "rechter" stuk */
-        
-        for (int y = 20; y < 40; y++){
+              
+            /* "rechter" stuk */
+               for (int y = 20; y < 40; y++){
             for(int x = 46; x < 52; x++){
                 addObject(new controleHaven(), x, y);
 
+            }
+        }
+        
+        
+        
+            /*loods rechts, midden, links */
+        for (int y = 10; y < 30; y++){
+            for(int x = 5; x < 10; x++){
+                
             }
         }
     }
