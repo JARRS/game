@@ -16,8 +16,11 @@ public class controleBoot extends controleHavenObjecten
     boolean varen = true;
     int mx = 0;
     int my = 0;
+    double currentX = (double) getX();
+    double currentY = (double) getY();
     public void act() 
     {
+       currentX += 0.1;
        if (Greenfoot.mouseClicked(this) == true && geklikt == false){
             geklikt = true;
         }
@@ -42,6 +45,8 @@ public class controleBoot extends controleHavenObjecten
                varen = false;
             }
         }
+        
+        setLocation((int)currentX, (int)currentY);
     }    
     
     public void varen(){
