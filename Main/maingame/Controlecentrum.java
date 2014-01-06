@@ -19,6 +19,8 @@ public class Controlecentrum extends Minigames
         fill();
         taskbar();
         addObject(ControlecentrumScore, 12, 0);
+        addObject(new kraanControle(), 3, 27);
+        addObject(new kraanControle(), 26, 35);
     }
     
     
