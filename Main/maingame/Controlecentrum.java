@@ -58,11 +58,28 @@ public class Controlecentrum extends Minigames
         
         
         
-            /*loods rechts, midden, links */
-        for (int y = 10; y < 30; y++){
-            for(int x = 5; x < 10; x++){
-                
+            /*loods links, midden, rechts*/
+         for (int y = 27; y < 28; y++){
+                for(int x = 2; x < 3; x++){
+                    addObject(new loods(),  x, y);
+                }
+        }
+            
+            
+            
+            for (int y = 27; y < 28; y++){
+                for(int x = 24; x < 25; x++){
+                    addObject(new loods(),  x, y);
+                }
+        }
+            
+            
+            
+        for (int y = 27; y < 28; y++){
+                for(int x = 47; x < 48; x++){
+                    addObject(new loods(),  x, y);
+                }
             }
         }
     }
-}
+ 
