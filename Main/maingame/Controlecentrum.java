@@ -13,11 +13,12 @@ public class Controlecentrum extends Minigames
      * Constructor for objects of class Controlecentrum.
      * 
      */
+    ScoreLabel ControlecentrumScore = new ScoreLabel();
     public Controlecentrum()
     {
         fill();
         taskbar();
-       
+        addObject(ControlecentrumScore, 12, 0);
     }
     
     
