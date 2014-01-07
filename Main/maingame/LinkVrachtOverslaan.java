@@ -19,7 +19,7 @@ public class LinkVrachtOverslaan extends Actor
     
     void clicked(){
         if(Greenfoot.mouseClicked(this) == true){
-            getWorld().removeObject(this);
+            //getWorld().removeObject(this);
             Greenfoot.setWorld(new VrachtOverslaan());
         }
     }
