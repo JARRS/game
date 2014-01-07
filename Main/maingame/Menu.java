@@ -20,6 +20,7 @@ public class Menu extends World
         
         links();
         taskbar();
+        fill();
     }
     
     void taskbar(){
@@ -33,5 +34,9 @@ public class Menu extends World
         addObject(new LinkControleKamer(), 600, 360);
         addObject(new LinkLoodsen(),400,50);
         addObject(new LinkSchipRepareren(), 600, 190);
+    }
+    
+    void fill(){
+        addObject(new PortOfRotterdam(),66,525);
     }
 }
