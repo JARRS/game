@@ -14,6 +14,5 @@ public class PortOfRotterdam extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
     }    
 }
