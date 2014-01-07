@@ -143,7 +143,9 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
                 getWorld().addObject(container1, hisx, hisy);
                 
                 getWorld().removeObject(grijpertje);
-                getWorld().addObject(new kraanGrijper(),hisx, hisy);
+                kraanGrijper nieuweGrijper = new kraanGrijper();
+                getWorld().addObject(nieuweGrijper,hisx, hisy);
+                nieuweGrijper.setOpgepakt(true);
                 
                 getWorld().removeObject(kraantje);
                 getWorld().addObject(new kraanXding(), hisx, 32);
@@ -159,7 +161,9 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
                 getWorld().addObject(container2, hisx, hisy);
                 
                 getWorld().removeObject(grijpertje);
-                getWorld().addObject(new kraanGrijper(),hisx, hisy);
+                kraanGrijper nieuweGrijper = new kraanGrijper();
+                getWorld().addObject(nieuweGrijper,hisx, hisy);
+                nieuweGrijper.setOpgepakt(true);
                 
                 getWorld().removeObject(kraantje);
                 getWorld().addObject(new kraanXding(), hisx, 32);
@@ -175,7 +179,9 @@ public class Krat_vrachtoverslaan extends Vrachoverslaanobjecten
                 getWorld().addObject(container3, hisx, hisy);
                 
                 getWorld().removeObject(grijpertje);
-                getWorld().addObject(new kraanGrijper(),hisx, hisy);
+                kraanGrijper nieuweGrijper = new kraanGrijper();
+                getWorld().addObject(nieuweGrijper,hisx, hisy);
+                nieuweGrijper.setOpgepakt(true);
                 
                 getWorld().removeObject(kraantje);
                 getWorld().addObject(new kraanXding(), hisx, 32);

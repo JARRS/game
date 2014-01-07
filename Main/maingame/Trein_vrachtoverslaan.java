@@ -85,7 +85,7 @@ public class Trein_vrachtoverslaan extends Vrachoverslaanobjecten
             
             //grijper linker bovenhoek = 10,24
             //grijper rechter onderhoek = 48,40
-            for(int y = -15; y <= 1; y++){
+            /*for(int y = -15; y <= 1; y++){
                 for(int x = -19; x <= 19; x++){
                     Actor deGrijper = getOneObjectAtOffset(x,y,kraanGrijper.class);
                     
@@ -94,13 +94,15 @@ public class Trein_vrachtoverslaan extends Vrachoverslaanobjecten
                         int grijperY = deGrijper.getY();
                         getWorld().removeObject(deGrijper);
                         getWorld().addObject(new kraanGrijper(),grijperX,grijperY);
+                        
+                        
                         break;
                     }
                 }
-            }
+            }*/
             //kraan links = 10,32
             //kraan rechts = 48,32
-            for(int x = -20; x <= 18; x++){
+            /*for(int x = -20; x <= 18; x++){
                 Actor deKraan = getOneObjectAtOffset(x,-7, kraanXding.class);
                 
                 if(deKraan != null){
@@ -109,7 +111,7 @@ public class Trein_vrachtoverslaan extends Vrachoverslaanobjecten
                     getWorld().removeObject(deKraan);
                     getWorld().addObject(new kraanXding(), kraanX, kraanY);
                 }
-            }
+            }*/
             
         }
         setLocation((int)currentX, getY());
