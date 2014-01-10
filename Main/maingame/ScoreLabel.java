@@ -14,6 +14,7 @@ public class ScoreLabel extends Actor
     int minutenGetal = 00;
     int teller = 0;
     String vrachtOverslaanScore = "";
+    String controleCentrumScore = "";
     //HighscoreVrachtOverslaan highscore = (HighscoreVrachtOverslaan) getOneObjectAtOffset(4,0,ScoreLabel.class);
     
     public void act() 
