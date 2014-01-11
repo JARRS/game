@@ -8,12 +8,24 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ControleBoot2 extends controleBoot
 {
-    /**
-     * Act - do whatever the ControleBoot2 wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public ControleBoot2()
+    {
+        setLocation(0, 6);
+        currentY = 6.0;
+        currentX = 0;
+    }
+    
     public void act() 
     {
-        // Add your action code here.
+       //currentX += 0.03;
+       
+       if(getX() >= 49)
+       {
+           Spawner spawner = (Spawner) getWorld().getObjects(Spawner.class).get(0);
+           spawner.setSpawnChance(2, -200);
+           getWorld().removeObject(this);
+       }
+       
+       super.act();
     }    
 }

@@ -16,11 +16,61 @@ public class controleBoot extends controleHavenObjecten
     boolean varen = true;
     int mx = 0;
     int my = 0;
-    double currentX = (double) getX();
-    double currentY = (double) getY();
+    double currentX;
+    double currentY;
+    double vaarSnelheid = 0.04;
+    
+    public controleBoot()
+    {
+
+    }
+    
+    public enum Status {
+    BINNENVAREN, OMLAAG, NAARHAVENX, NAARHAVENY, IDLE
+    }
+    Status bootStatus = Status.BINNENVAREN;
+    
     public void act() 
     {
-       currentX += 0.1;
+       if(bootStatus == Status.BINNENVAREN)
+       {
+           currentX += vaarSnelheid;
+           
+           if(getX() == 33)
+           {
+               turn(90);
+               bootStatus = Status.OMLAAG;
+           }
+       }
+       else if(bootStatus == Status.OMLAAG)
+       {
+           currentY += vaarSnelheid;
+           
+           if(getY() == 25)
+           {
+               //TODO turn naar goede kant
+               bootStatus = Status.NAARHAVENX;
+           }
+       }
+       else if(bootStatus == Status.NAARHAVENX)
+       {
+           //TODO ga naar goede kant
+           
+           //TODO als de haven x is bereikt, ga naar de Y van de haven
+           /* if(getX() == )
+           {
+               bootStatus = Status.NAARHAVENY;
+           } */
+       }
+       else if(bootStatus == Status.NAARHAVENY)
+       {
+           if(currentY < 37.0)
+           {
+               currentY += vaarSnelheid;
+           }
+       }
+        
+        
        if (Greenfoot.mouseClicked(this) == true && geklikt == false){
             geklikt = true;
         }
@@ -45,14 +95,12 @@ public class controleBoot extends controleHavenObjecten
                varen = false;
             }
         }
-        
-        setLocation((int)currentX, (int)currentY);
+                
+       setLocation((int)currentX, (int)currentY);
     }    
     
-    public void varen(){
-        
-        
-        
+    public void varen()
+    {
         
     }
 }

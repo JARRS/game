@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ act()
+comment1.params=boot\ verschil
+comment1.target=void\ setSpawnChance(int,\ int)
+comment2.params=boot
+comment2.target=int\ getSpawnChance(int)
+numComments=3
