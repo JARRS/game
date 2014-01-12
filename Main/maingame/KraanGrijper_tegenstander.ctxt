@@ -9,4 +9,6 @@ comment3.params=cell\ x
 comment3.target=int\ getVrijeRuimte(boolean[],\ int)
 comment4.params=
 comment4.target=void\ act()
-numComments=5
+comment5.params=snelheid
+comment5.target=void\ setKraanSnelheid(double)
+numComments=6

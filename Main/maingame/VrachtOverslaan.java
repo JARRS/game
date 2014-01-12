@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.Color; 
+import java.util.*;
 /**
  * Write a description of class VrachtOverslaan here.
  * 
@@ -15,6 +16,15 @@ public class VrachtOverslaan extends Minigames
      */
     int scheepsVracht = 0;
     int scheepsVrachtTegenstander = 0;
+    KraanGrijper_tegenstander tegenstander = new KraanGrijper_tegenstander();
+    
+    Actor MakkelijkKnop = new MakkelijkKnopVrachtOverslaan();
+    MakkelijkKnopVrachtOverslaan Makkelijk = (MakkelijkKnopVrachtOverslaan) MakkelijkKnop;
+    Actor NormaalKnop = new NormaalKnopVrachtOverslaan();
+    NormaalKnopVrachtOverslaan Normaal = (NormaalKnopVrachtOverslaan) NormaalKnop;
+    Actor MoeilijkKnop = new MoeilijkKnopVrachtOverslaan();
+    MoeilijkKnopVrachtOverslaan Moeilijk = (MoeilijkKnopVrachtOverslaan) MoeilijkKnop;
+    
     public VrachtOverslaan()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -22,7 +32,7 @@ public class VrachtOverslaan extends Minigames
         
         fill();
         taskbar();
-        objects();
+        startMenu();
     }
     
     void fill(){
@@ -50,15 +60,17 @@ public class VrachtOverslaan extends Minigames
             }
         }
         
+        addObject(new Boot_vrachtoverslaan(),24, 16);
+        addObject(new Boot_vrachtoverslaan(),24, 26);
+        addObject(new Trein_vrachtoverslaan_tegenstander(), 30, 3);
+        addObject(new Trein_vrachtoverslaan(), 30, 39); 
+        
     }
    
     ScoreLabel VrachtOverslaanScore = new ScoreLabel();
     public static HighscoreVrachtOverslaan Highscore = new HighscoreVrachtOverslaan();
     void objects(){
-        addObject(new Boot_vrachtoverslaan(),24, 16);
-        addObject(new Boot_vrachtoverslaan(),24, 26);
-        addObject(new Trein_vrachtoverslaan_tegenstander(), 30, 3);
-        addObject(new Trein_vrachtoverslaan(), 30, 39);  
+         
         
         //zet containers neer
         String[][] randomContainers = getRandomContainers(3, 15);
@@ -126,7 +138,7 @@ public class VrachtOverslaan extends Minigames
         addObject(new KraanBasis(), 29, 8);
         addObject(new KraanBasis(), 29, 34);
         
-        KraanGrijper_tegenstander tegenstander = new KraanGrijper_tegenstander();
+
         addObject(tegenstander, 22, 18);
         addObject(new kraanGrijper(), 22, 24);
         addObject(new KraanXding_tegenstander(), 22, 10);
@@ -215,5 +227,51 @@ public class VrachtOverslaan extends Minigames
         }
         
     }
+    
+    public void startMenu(){
+        //voegt startMenu toe
+        addObject(new StartMenuAchtergrond(), 25, 20);
+        addObject(new VrachtOverslaanTekst(), 25, 20);
+        addObject(new StartKnopVrachtOverslaan(), 30, 33);
+        
+      
+        
+        addObject(MakkelijkKnop, 19, 30);
+        addObject(NormaalKnop, 25, 30);
+        addObject(MoeilijkKnop, 31, 30);
+    }
+    
+    public void makkelijk(){
+        tegenstander.setKraanSnelheid(0.1);
+        Makkelijk.geklikt();
+        Normaal.undo();
+        Moeilijk.undo();
+        
+    }
+    
+    public void normaal(){
+        tegenstander.setKraanSnelheid(0.2);
+        Makkelijk.undo();
+        Normaal.geklikt();
+        Moeilijk.undo();
+    }
+    
+    public void moeilijk(){
+        tegenstander.setKraanSnelheid(0.3);
+        Makkelijk.undo();
+        Normaal.undo();
+        Moeilijk.geklikt();
+    }
+    
+    public void start(){
+        objects();
+        remove();
+    }
+    
+    private void remove(){
+        List startMenu = getObjects(StartMenuObjectenVrachtOverslaan.class);
+        removeObjects(startMenu);
+    }
 }
+
 

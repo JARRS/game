@@ -334,7 +334,11 @@ public class KraanGrijper_tegenstander extends Vrachoverslaanobjecten
         kraanXding.setLocation((int)currentX,kraanXding.getY());
         
         
-    }    
+    }  
+    
+    public void setKraanSnelheid(double snelheid){
+            kraanSnelheid = snelheid;
+        }
 }
 
 
