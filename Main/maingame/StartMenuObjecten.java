@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class StartMenuObjectenVrachtOverslaan extends Actor
+public class StartMenuObjecten extends Actor
 {
     /**
      * Act - do whatever the StartMenuObjectenVrachtOverslaan wants to do. This method is called whenever

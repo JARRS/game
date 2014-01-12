@@ -18,12 +18,12 @@ public class VrachtOverslaan extends Minigames
     int scheepsVrachtTegenstander = 0;
     KraanGrijper_tegenstander tegenstander = new KraanGrijper_tegenstander();
     
-    Actor MakkelijkKnop = new MakkelijkKnopVrachtOverslaan();
-    MakkelijkKnopVrachtOverslaan Makkelijk = (MakkelijkKnopVrachtOverslaan) MakkelijkKnop;
-    Actor NormaalKnop = new NormaalKnopVrachtOverslaan();
-    NormaalKnopVrachtOverslaan Normaal = (NormaalKnopVrachtOverslaan) NormaalKnop;
-    Actor MoeilijkKnop = new MoeilijkKnopVrachtOverslaan();
-    MoeilijkKnopVrachtOverslaan Moeilijk = (MoeilijkKnopVrachtOverslaan) MoeilijkKnop;
+    Actor MakkelijkKnop = new MakkelijkKnop();
+    MakkelijkKnop Makkelijk = (MakkelijkKnop) MakkelijkKnop;
+    Actor NormaalKnop = new NormaalKnop();
+    NormaalKnop Normaal = (NormaalKnop) NormaalKnop;
+    Actor MoeilijkKnop = new MoeilijkKnop();
+    MoeilijkKnop Moeilijk = (MoeilijkKnop) MoeilijkKnop;
     
     public VrachtOverslaan()
     {    
@@ -232,7 +232,7 @@ public class VrachtOverslaan extends Minigames
         //voegt startMenu toe
         addObject(new StartMenuAchtergrond(), 25, 20);
         addObject(new VrachtOverslaanTekst(), 25, 20);
-        addObject(new StartKnopVrachtOverslaan(), 30, 33);
+        addObject(new StartKnop(), 30, 33);
         
       
         
@@ -269,7 +269,7 @@ public class VrachtOverslaan extends Minigames
     }
     
     private void remove(){
-        List startMenu = getObjects(StartMenuObjectenVrachtOverslaan.class);
+        List startMenu = getObjects(StartMenuObjecten.class);
         removeObjects(startMenu);
     }
 }
