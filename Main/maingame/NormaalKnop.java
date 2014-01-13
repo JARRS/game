@@ -12,7 +12,9 @@ public class NormaalKnop extends StartKnoppen
      * Act - do whatever the NormaalKnop wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    VrachtOverslaan hetWereld = (VrachtOverslaan) getWorld();
+    String worldType = "" + getWorld();
+    VrachtOverslaan vrachtOverslaanWereld = (VrachtOverslaan) getWorld();
+    Controlecentrum controleCentrumWereld = (Controlecentrum) getWorld();
     public void act() 
     {
         klikje();
@@ -25,8 +27,15 @@ public class NormaalKnop extends StartKnoppen
         }
     }
     private void actie(){
-        VrachtOverslaan hetWereld = (VrachtOverslaan) getWorld();
-        hetWereld.normaal();
+        String worldType = " " + getWorld();
+        if(worldType.contains("VrachtOverslaan")){
+            VrachtOverslaan deWorld = (VrachtOverslaan) getWorld();
+            deWorld.normaal();
+        }
+        else if(worldType.contains("Controlecentrum")){
+            Controlecentrum deWorld = (Controlecentrum) getWorld();
+            deWorld.normaal();
+        }
     } 
     
     public void geklikt(){

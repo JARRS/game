@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 /**
  * Write a description of class Controlecentrum here.
  * 
@@ -14,12 +14,18 @@ public class Controlecentrum extends Minigames
      * 
      */
     ScoreLabel ControlecentrumScore = new ScoreLabel();
+    
+    Actor MakkelijkKnop = new MakkelijkKnop();
+    MakkelijkKnop Makkelijk = (MakkelijkKnop) MakkelijkKnop;
+    Actor NormaalKnop = new NormaalKnop();
+    NormaalKnop Normaal = (NormaalKnop) NormaalKnop;
+    Actor MoeilijkKnop = new MoeilijkKnop();
+    MoeilijkKnop Moeilijk = (MoeilijkKnop) MoeilijkKnop;
     public Controlecentrum()
     {
         fill();
         taskbar();
-        addObject(ControlecentrumScore, 12, 0);
-        addObject(new Spawner(), 24, 41);
+        startMenu();
     }
     
     
@@ -87,5 +93,57 @@ public class Controlecentrum extends Minigames
             }
         }
       }
+      
+      public void objects(){
+          addObject(ControlecentrumScore, 12, 0);
+          addObject(new Spawner(), 24, 41);
+        }
+      public void startMenu(){
+        //voegt startMenu toe
+        addObject(new StartMenuAchtergrond(), 25, 20);
+        addObject(new ControleCentrumTekst(), 25, 20);
+        addObject(new StartKnop(), 30, 33);
+        
+      
+        
+        addObject(MakkelijkKnop, 19, 30);
+        addObject(NormaalKnop, 25, 30);
+        addObject(MoeilijkKnop, 31, 30);
+        
+        Normaal.geklikt();
+    }
+    
+     
+    public void makkelijk(){
+        
+        Makkelijk.geklikt();
+        Normaal.undo();
+        Moeilijk.undo();
+        
+    }
+    
+    public void normaal(){
+        
+        Makkelijk.undo();
+        Normaal.geklikt();
+        Moeilijk.undo();
+    }
+    
+    public void moeilijk(){
+        
+        Makkelijk.undo();
+        Normaal.undo();
+        Moeilijk.geklikt();
+    }
+    
+    public void start(){
+        objects();
+        remove();
+    }
+    
+    private void remove(){
+        List startMenu = getObjects(StartMenuObjecten.class);
+        removeObjects(startMenu);
+    }
     }
  

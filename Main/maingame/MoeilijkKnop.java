@@ -12,11 +12,13 @@ public class MoeilijkKnop extends StartKnoppen
      * Act - do whatever the MoeijlijkKnop wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    VrachtOverslaan hetWereld = (VrachtOverslaan) getWorld();
+    String worldType = "" + getWorld();
+    VrachtOverslaan vrachtOverslaanWereld = (VrachtOverslaan) getWorld();
+    Controlecentrum controleCentrumWereld = (Controlecentrum) getWorld();
+    
     public void act() 
     {
         klikje();
-
     }    
     
     private void klikje(){
@@ -26,8 +28,15 @@ public class MoeilijkKnop extends StartKnoppen
     }
     
     private void actie(){
-        VrachtOverslaan hetWereld = (VrachtOverslaan) getWorld();
-        hetWereld.moeilijk();
+       String worldType = " " + getWorld();
+        if(worldType.contains("VrachtOverslaan")){
+            VrachtOverslaan deWorld = (VrachtOverslaan) getWorld();
+            deWorld.moeilijk();
+        }
+        else if(worldType.contains("Controlecentrum")){
+            Controlecentrum deWorld = (Controlecentrum) getWorld();
+            deWorld.moeilijk();
+        }
     }
     
     public void geklikt(){

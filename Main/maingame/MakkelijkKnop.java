@@ -12,8 +12,7 @@ public class MakkelijkKnop extends StartKnoppen
      * Act - do whatever the MakkelijkKnop wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
-    VrachtOverslaan hetWereld = (VrachtOverslaan) getWorld();
+    String worldType = "" + getWorld();
     public void act() 
     {
         klikje();
@@ -26,9 +25,17 @@ public class MakkelijkKnop extends StartKnoppen
         }
     }
     
-    private void actie(){
-        VrachtOverslaan hetWereld = (VrachtOverslaan) getWorld();
-        hetWereld.makkelijk();
+    public void actie(){
+        String worldType = " " + getWorld();
+        if(worldType.contains("VrachtOverslaan")){
+            VrachtOverslaan deWorld = (VrachtOverslaan) getWorld();
+            deWorld.makkelijk();
+        }
+        else if(worldType.contains("Controlecentrum")){
+            Controlecentrum deWorld = (Controlecentrum) getWorld();
+            deWorld.makkelijk();
+        }
+
     }
     
     public void geklikt(){

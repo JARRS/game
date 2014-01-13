@@ -12,11 +12,9 @@ public class StartKnop extends StartKnoppen
      * Act - do whatever the StartKnop wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
     public void act() 
     {
         klikje();
-
     }    
     
     private void klikje(){
@@ -27,7 +25,14 @@ public class StartKnop extends StartKnoppen
     
     
     public void actie(){
-        VrachtOverslaan hetWereld = (VrachtOverslaan) getWorld();
-        hetWereld.start();
+        String worldType = " " + getWorld();
+        if(worldType.contains("VrachtOverslaan")){
+            VrachtOverslaan deWorld = (VrachtOverslaan) getWorld();
+            deWorld.start();
+        }
+        else if(worldType.contains("Controlecentrum")){
+            Controlecentrum deWorld = (Controlecentrum) getWorld();
+            deWorld.start();
+        }
     }  
 }

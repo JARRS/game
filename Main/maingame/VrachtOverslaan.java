@@ -234,11 +234,12 @@ public class VrachtOverslaan extends Minigames
         addObject(new VrachtOverslaanTekst(), 25, 20);
         addObject(new StartKnop(), 30, 33);
         
-      
         
         addObject(MakkelijkKnop, 19, 30);
         addObject(NormaalKnop, 25, 30);
         addObject(MoeilijkKnop, 31, 30);
+        
+        Normaal.geklikt();
     }
     
     public void makkelijk(){
