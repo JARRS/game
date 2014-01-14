@@ -21,11 +21,57 @@ public class Controlecentrum extends Minigames
     NormaalKnop Normaal = (NormaalKnop) NormaalKnop;
     Actor MoeilijkKnop = new MoeilijkKnop();
     MoeilijkKnop Moeilijk = (MoeilijkKnop) MoeilijkKnop;
+    
     public Controlecentrum()
     {
         fill();
         taskbar();
-        startMenu();
+        objects();
+        //setPaintOrder(Haven.class, controleBoot.class);
+    }
+    
+    void objects()
+    {
+        
+        addObject(ControlecentrumScore, 12, 0);
+        addObject(new Spawner(), 24, 41);
+        
+        //zet havens neer + havennummers
+        Haven haven1 = new Haven(1);
+        addObject(haven1, 2, 37);
+        addObject(new HavenNummer("1"), 2, 38);
+        
+        Haven haven2 = new Haven(2);
+        addObject(haven2, 11, 37);
+        haven2.setImage("../images/HavenRechts.png");
+        addObject(new HavenNummer("2"), 11, 38);
+        
+        Haven haven3 = new Haven(3);
+        addObject(haven3, 14, 37);
+        addObject(new HavenNummer("3"), 14, 38);
+        
+        Haven haven4 = new Haven(4);
+        addObject(haven4, 23, 37);
+        haven4.setImage("../images/HavenRechts.png");
+        addObject(new HavenNummer("4"), 23, 38);
+        
+        Haven haven5 = new Haven(5);
+        addObject(haven5, 26, 37);
+        addObject(new HavenNummer("5"), 26, 38);
+        
+        Haven haven6 = new Haven(6);
+        addObject(haven6, 35, 37);
+        haven6.setImage("../images/HavenRechts.png");
+        addObject(new HavenNummer("6"), 35, 38);
+        
+        Haven haven7 = new Haven(7);
+        addObject(haven7, 38, 37);
+        addObject(new HavenNummer("7"), 38, 38);
+        
+        Haven haven8 = new Haven(8);
+        addObject(haven8, 47, 37);
+        haven8.setImage("../images/HavenRechts.png");
+        addObject(new HavenNummer("8"), 47, 38);
     }
     
     
@@ -55,7 +101,7 @@ public class Controlecentrum extends Minigames
        
            // van havens van links naar rechts//
        for (int y = 33; y < 43; y++){
-            for(int x = 0; x < 1; x++){
+            for(int x = 0; x < 2; x++){
                 addObject(new controleHaven(), x, y);
 
             }
@@ -63,7 +109,7 @@ public class Controlecentrum extends Minigames
         
            
            for (int y = 33; y < 43; y++){
-            for(int x = 12; x < 13; x++){
+            for(int x = 12; x < 14; x++){
                 addObject(new controleHaven(), x, y);
 
             }
@@ -71,7 +117,7 @@ public class Controlecentrum extends Minigames
        
           
         for (int y = 33; y < 43; y++){
-            for(int x = 24; x < 25; x++){
+            for(int x = 24; x < 26; x++){
                addObject(new controleHaven(), x, y);
 
             }
@@ -79,7 +125,7 @@ public class Controlecentrum extends Minigames
            
         
         for (int y = 33; y < 43; y++){
-            for(int x = 37; x < 38; x++){
+            for(int x = 36; x < 38; x++){
                 addObject(new controleHaven(), x, y);
 
             }
@@ -87,17 +133,14 @@ public class Controlecentrum extends Minigames
         
         
         for (int y = 33; y < 43; y++){
-            for(int x = 51; x < 52; x++){
+            for(int x = 48; x < 51; x++){
                 addObject(new controleHaven(), x, y);
 
             }
         }
+        
       }
       
-      public void objects(){
-          addObject(ControlecentrumScore, 12, 0);
-          addObject(new Spawner(), 24, 41);
-        }
       public void startMenu(){
         //voegt startMenu toe
         addObject(new StartMenuAchtergrond(), 25, 20);
@@ -145,5 +188,6 @@ public class Controlecentrum extends Minigames
         List startMenu = getObjects(StartMenuObjecten.class);
         removeObjects(startMenu);
     }
+    
     }
  

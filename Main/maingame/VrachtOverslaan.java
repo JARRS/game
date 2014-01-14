@@ -33,6 +33,7 @@ public class VrachtOverslaan extends Minigames
         fill();
         taskbar();
         startMenu();
+        //objects();
     }
     
     void fill(){
@@ -60,17 +61,17 @@ public class VrachtOverslaan extends Minigames
             }
         }
         
-        addObject(new Boot_vrachtoverslaan(),24, 16);
-        addObject(new Boot_vrachtoverslaan(),24, 26);
-        addObject(new Trein_vrachtoverslaan_tegenstander(), 30, 3);
-        addObject(new Trein_vrachtoverslaan(), 30, 39); 
-        
     }
    
     ScoreLabel VrachtOverslaanScore = new ScoreLabel();
     public static HighscoreVrachtOverslaan Highscore = new HighscoreVrachtOverslaan();
     void objects(){
-         
+        addObject(new Boot_vrachtoverslaan(),24, 16);
+        addObject(new Boot_vrachtoverslaan(),24, 26);
+        addObject(new Radar(), 6, 16);
+        addObject(new Radar(), 6, 26);
+        addObject(new Trein_vrachtoverslaan_tegenstander(), 30, 3);
+        addObject(new Trein_vrachtoverslaan(), 30, 39);  
         
         //zet containers neer
         String[][] randomContainers = getRandomContainers(3, 15);
@@ -138,7 +139,7 @@ public class VrachtOverslaan extends Minigames
         addObject(new KraanBasis(), 29, 8);
         addObject(new KraanBasis(), 29, 34);
         
-
+        KraanGrijper_tegenstander tegenstander = new KraanGrijper_tegenstander();
         addObject(tegenstander, 22, 18);
         addObject(new kraanGrijper(), 22, 24);
         addObject(new KraanXding_tegenstander(), 22, 10);
@@ -274,5 +275,4 @@ public class VrachtOverslaan extends Minigames
         removeObjects(startMenu);
     }
 }
-
 

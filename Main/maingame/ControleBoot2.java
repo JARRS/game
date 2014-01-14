@@ -10,8 +10,8 @@ public class ControleBoot2 extends controleBoot
 {
     public ControleBoot2()
     {
-        setLocation(0, 6);
-        currentY = 6.0;
+        setLocation(0, 4);
+        currentY = 4.0;
         currentX = 0;
     }
     

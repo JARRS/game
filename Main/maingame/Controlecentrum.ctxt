@@ -2,10 +2,10 @@
 comment0.params=
 comment0.target=Controlecentrum()
 comment1.params=
-comment1.target=void\ fill()
-comment1.text=maakt\ controlehaven
+comment1.target=void\ objects()
 comment2.params=
-comment2.target=void\ objects()
+comment2.target=void\ fill()
+comment2.text=maakt\ controlehaven
 comment3.params=
 comment3.target=void\ startMenu()
 comment4.params=
