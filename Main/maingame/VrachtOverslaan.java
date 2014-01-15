@@ -139,7 +139,7 @@ public class VrachtOverslaan extends Minigames
         addObject(new KraanBasis(), 29, 8);
         addObject(new KraanBasis(), 29, 34);
         
-        KraanGrijper_tegenstander tegenstander = new KraanGrijper_tegenstander();
+        
         addObject(tegenstander, 22, 18);
         addObject(new kraanGrijper(), 22, 24);
         addObject(new KraanXding_tegenstander(), 22, 10);
