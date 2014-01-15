@@ -149,7 +149,7 @@ public class VrachtOverslaan extends Minigames
         
         taskbar();
         addObject(VrachtOverslaanScore, 12, 0);
-        //addObject(Highscore,16,0);
+        VrachtOverslaanScore.scoreReset();
         
         //geef de tegenstander de locaties van de containers mee
         tegenstander.acceptContainerMap(randomContainers);
@@ -215,19 +215,6 @@ public class VrachtOverslaan extends Minigames
         this.scheepsVracht = scheepsVracht;
     }
     
-    public void sendScore(){
-        String score = VrachtOverslaanScore.getScore();
-        /*Highscores highscore = new Highscores();
-        highscore.setScore(score);*/
-        if(Highscore.getMinuten() < VrachtOverslaanScore.getMinuten()){
-            Highscore.setScore(score);
-        }
-        
-        else if(Highscore.getMinuten() == VrachtOverslaanScore.getMinuten() && Highscore.getSeconden() < VrachtOverslaanScore.getSeconden()){
-            Highscore.setScore(score);
-        }
-        
-    }
     
     public void startMenu(){
         //voegt startMenu toe

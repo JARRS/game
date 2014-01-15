@@ -51,6 +51,9 @@ public class Trein_vrachtoverslaan extends Vrachoverslaanobjecten
             if(scheepsVracht == 0){
                 VrachtOverslaan dezeWereld = (VrachtOverslaan) getWorld();
                 //VrachtOverslaan.sendScore();
+                if(ScoreLabel.minutenGetal <= ScoreVrachtoverslaan.minutenGetal && ScoreLabel.secondenGetal < ScoreVrachtoverslaan.secondenGetal){
+                    ScoreVrachtoverslaan.setVrachtOverslaanScore(ScoreLabel.vrachtOverslaanScore);
+                }
                 int reply = JOptionPane.showConfirmDialog(null, "Gefeliciteerd u heeft gewonnen! Wilt u nog een keer spelen?", "Gewonnen!", JOptionPane.YES_NO_OPTION);
                 if (reply == JOptionPane.YES_OPTION){
                     getWorld().removeObject(this);

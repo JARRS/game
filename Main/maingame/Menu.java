@@ -26,7 +26,7 @@ public class Menu extends World
     void taskbar(){
         addObject(new Taskbar(), 400, 10);
         addObject(new Afsluiten(), 750, 10);
-        //addObject(new HighscoresTab(), 682, 12);
+        addObject(new HighscoresTab(), 682, 12);
     }
     
     void links(){

@@ -8,13 +8,13 @@ import java.text.DecimalFormat;
  * @version (a version number or a date)
  */
 
-public class ScoreLabel extends Actor  
+public class ScoreLabel extends HighscoresObjecten  
 {  
-    int secondenGetal = 00;
-    int minutenGetal = 00;
-    int teller = 0;
-    String vrachtOverslaanScore = "";
-    String controleCentrumScore = "";
+    static int secondenGetal = 00;
+    static int minutenGetal = 00;
+    static int teller = 0;
+    static String vrachtOverslaanScore = "";
+    static String controleCentrumScore = "";
     //HighscoreVrachtOverslaan highscore = (HighscoreVrachtOverslaan) getOneObjectAtOffset(4,0,ScoreLabel.class);
     
     public void act() 
@@ -60,6 +60,11 @@ public class ScoreLabel extends Actor
     
    public int getSeconden(){
        return secondenGetal;
+    }
+    
+   public void scoreReset(){
+       secondenGetal = 00;
+       minutenGetal = 00;
     }
     
    

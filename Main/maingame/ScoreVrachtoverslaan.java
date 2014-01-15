@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.text.DecimalFormat;
 /**
  * Write a description of class ScoreVrachtoverslaan here.
  * 
@@ -12,9 +12,16 @@ public class ScoreVrachtoverslaan extends HighscoresObjecten
      * Act - do whatever the ScoreVrachtoverslaan wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    String vrachtOverslaanScore = "00:00";
+    private static String vrachtOverslaanScore = "00:00";
+    static int secondenGetal = 99;
+    static int minutenGetal = 99;
+    
     public void act() 
     {
+       DecimalFormat formatter = new DecimalFormat("00");
+       String seconden = formatter.format(secondenGetal);
+       String minuten = formatter.format(minutenGetal);
+       
        setScore(vrachtOverslaanScore);
     }    
     public ScoreVrachtoverslaan ()  
@@ -25,8 +32,8 @@ public class ScoreVrachtoverslaan extends HighscoresObjecten
         setImage(img);  
     }  
     
-    public void setVrachtOverslaanScore(String vrachtOverslaanScore){
-        this.vrachtOverslaanScore = vrachtOverslaanScore;
+    public static void setVrachtOverslaanScore(String deScore){
+        vrachtOverslaanScore = deScore;
     
     }
     
