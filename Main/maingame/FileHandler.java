@@ -36,11 +36,10 @@ public class FileHandler
         
         public static void readHighscore(){
           try {
-            // FileReader reads text files in the default encoding.
+            
             FileReader fileReader = 
                 new FileReader(yourFile);
 
-            // Always wrap FileReader in BufferedReader.
             BufferedReader bufferedReader = 
                 new BufferedReader(fileReader);
             
@@ -49,7 +48,7 @@ public class FileHandler
                 returnTekst = line;
             }	
 
-            // Always close files.
+            
             bufferedReader.close();			
         }
         catch(FileNotFoundException ex) {
@@ -61,8 +60,7 @@ public class FileHandler
             System.out.println(
                 "Error reading file '" 
                 + yourFile + "'");					
-            // Or we could just do this: 
-            // ex.printStackTrace();
+            
         }
         }
         
