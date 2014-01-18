@@ -15,6 +15,7 @@ public class Haven extends controleHavenObjecten
     }
     public void act() 
     {
+        /*
         if(Greenfoot.mouseClicked(this))
         {
             List<controleBoot> boten = getWorld().getObjects(controleBoot.class);
@@ -32,6 +33,7 @@ public class Haven extends controleHavenObjecten
                 }
             }
         }
+        */
     }
     
     public int getID()

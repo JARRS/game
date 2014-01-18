@@ -11,7 +11,7 @@ public class BoegNummer extends controleHavenObjecten
     public BoegNummer()
     {
         GreenfootImage img = new GreenfootImage(1, 1);  
-        img.setColor(java.awt.Color.white);  
+        img.setColor(java.awt.Color.black);  
         img.drawString ("", 2, 15);  
         setImage(img); 
     }
@@ -29,7 +29,7 @@ public class BoegNummer extends controleHavenObjecten
     public void setBoegNummer(String nummer)
     {
         GreenfootImage img = new GreenfootImage(20, 20);  
-        img.setColor(java.awt.Color.white);  
+        img.setColor(java.awt.Color.black);  
         img.drawString (nummer, 2, 15);  
         setImage(img); 
     }

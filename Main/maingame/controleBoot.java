@@ -10,6 +10,7 @@ public class controleBoot extends controleHavenObjecten
 {
     
     boolean geklikt = false;
+    boolean geselecteerd = false;
     boolean varen = true;
     int mx = 0;
     int my = 0;
@@ -20,6 +21,8 @@ public class controleBoot extends controleHavenObjecten
     BoegNummer boegNummer = null;
     int destinationID = 0;
     int destinationX;
+    int laadLosTijd = 300;
+    Loodser mijnLoodser = null;
     
     public controleBoot()
     {
@@ -39,7 +42,8 @@ public class controleBoot extends controleHavenObjecten
            boegNummer = new BoegNummer();
            getWorld().addObject(boegNummer, 0, 0);
        }
-       
+      
+       /*
        //klikken op boten
        if (Greenfoot.mouseClicked(this) == true && geklikt == false && getY() < 24)
        {
@@ -53,11 +57,7 @@ public class controleBoot extends controleHavenObjecten
        {
            //destination = EEN HAVEN
            
-           /*MouseInfo mouse = Greenfoot.getMouseInfo(); 
-           if(mouse!=null){  
-               mx = mouse.getX();  
-               my = mouse.getY();  
-           }  */
+          
            geklikt = false; 
            getWorld().removeObject(cirkel);
        }
@@ -66,13 +66,9 @@ public class controleBoot extends controleHavenObjecten
            geklikt = false;  
            getWorld().removeObject(cirkel);
        }
-       
-       //klik op een haven
-       //if(geklikt && opEenHavenGeklikt())
-        //{
-           
-        //}
-        
+       */
+      
+            
        if(bootStatus == Status.BINNENVAREN)
        {
            currentX += vaarSnelheid;
@@ -85,7 +81,10 @@ public class controleBoot extends controleHavenObjecten
        }
        else if(bootStatus == Status.OMLAAG)
        {
-           currentY += vaarSnelheid;
+           if(isRouteVrij("omlaag"))
+           {
+               currentY += vaarSnelheid;
+           }
 
            if(getY() == 10)
            {
@@ -94,7 +93,7 @@ public class controleBoot extends controleHavenObjecten
        }
        else if(bootStatus == Status.WACHTENOPLOODS)
        {
-           if(isRouteVrij() && getY() < 24)
+           if(isRouteVrij("omlaag") && getY() < 24)
            {
                currentY += vaarSnelheid;
            }
@@ -103,6 +102,12 @@ public class controleBoot extends controleHavenObjecten
                //VERLOREN
            }
             
+           //deselecteer als je geselecteerd bent en stil staat
+           if(getY() == 24 && geselecteerd && destinationID == 0 && getOneObjectAtOffset(0, 0, Loodser.class) == null)
+           {
+               setGeselecteerd(false);
+           }
+           
            if(getY() == 24 && destinationID != 0)
            {
                //turn naar goede kant
@@ -111,10 +116,10 @@ public class controleBoot extends controleHavenObjecten
                //zoek x positie van de haven
                destinationX = getDestinationXPos(destinationID);
                
-               geklikt = false;
                getWorld().removeObject(cirkel);
                bootStatus = Status.NAARHAVENX;
            }
+
        }
        else if(bootStatus == Status.NAARHAVENX)
        {
@@ -139,28 +144,78 @@ public class controleBoot extends controleHavenObjecten
            if(getY() == 37)
            {
                turn(180);
+               setDestinationID(0);
+               mijnLoodser = null;
                bootStatus = Status.AANGEMEERD;
            }
        }
        else if(bootStatus == Status.AANGEMEERD)
        {
-           
+           laadLosTijd--;
+           if(laadLosTijd == 0)
+           {
+               bootStatus = Status.UITHAVENY;
+           }
        }
        else if(bootStatus == Status.UITHAVENY)
        {
+           currentY -= vaarSnelheid;
            
+           if(getY() == 27)
+           {
+               if(getX() <= 34)
+               {
+                   turn(90);
+               }
+               else
+               {
+                   turn(-90);
+               }
+               bootStatus = Status.UITHAVENX;
+           }
        }
        else if(bootStatus == Status.UITHAVENX)
        {
+           //ga naar goede kant
+           if(getX() <= 34)
+              {
+                  currentX += vaarSnelheid;
+              }
+              else
+              {
+                  currentX -= vaarSnelheid;
+           }
            
+           
+           if(getX() == 34)
+           {
+               if(this.getRotation() == 0)
+               {
+                   turn(-90);
+               }
+               else if(this.getRotation() == 180)
+               {
+                   turn(90);
+               }
+               bootStatus = Status.OMHOOG;
+           }
        }
        else if(bootStatus == Status.OMHOOG)
        {
+           if(isRouteVrij("omhoog"))
+           {
+               currentY -= vaarSnelheid;
+           }
            
+           if(getY() == 4)
+           {
+               turn(90);
+               bootStatus = Status.WEGVAREN;
+           }
        }
        else if(bootStatus == Status.WEGVAREN)
        {
-           currentY += vaarSnelheid;
+           currentX += vaarSnelheid;
        }
        
        
@@ -170,7 +225,15 @@ public class controleBoot extends controleHavenObjecten
            cirkel.setPosition((int)currentX, (int)currentY);
        }
        //beweeg boegnummer mee
-       boegNummer.setPosition((int)currentX, (int)currentY);
+       if(bootStatus == Status.BINNENVAREN || bootStatus == Status.OMLAAG || bootStatus == Status.WACHTENOPLOODS || bootStatus == Status.NAARHAVENX || bootStatus == Status.NAARHAVENY)
+       {
+           boegNummer.setPosition((int)currentX, (int)currentY);
+       }
+       //beweeg loodser mee
+       if(mijnLoodser != null)
+       {
+           mijnLoodser.setPosition((int)currentX, (int)currentY);
+       }
        
        setLocation((int)currentX, (int)currentY);
     }    
@@ -197,7 +260,20 @@ public class controleBoot extends controleHavenObjecten
     public void setDestinationID(int id)
     {
         destinationID = id;
-        boegNummer.setBoegNummer(Integer.toString(id));
+        if(id == 0)
+        {
+            boegNummer.setBoegNummer("");
+        }
+        else
+        {
+            boegNummer.setBoegNummer(Integer.toString(id));
+        }
+    }
+    
+    public void acceptLoodser(Loodser loodser)
+    {
+        mijnLoodser = loodser;
+        setDestinationID(loodser.loodserID);
     }
     
     public int getDestinationID()
@@ -207,7 +283,7 @@ public class controleBoot extends controleHavenObjecten
     
     public int getDestinationXPos(int id)
     {
-        int position = 48;
+        int position = 47;
         
         List<Haven> havens = getWorld().getObjects(Haven.class);
         for(int i = 0; i < havens.size();i++)
@@ -221,7 +297,7 @@ public class controleBoot extends controleHavenObjecten
         return position;
     }
     
-    public boolean isRouteVrij()
+    public boolean isRouteVrij(String richting)
     {
         boolean vrij = true;
         boolean onderNiks = true;
@@ -234,8 +310,16 @@ public class controleBoot extends controleHavenObjecten
                 onderNiks = false;
             }
         }
-        
-        if(getOneObjectAtOffset(0, 1, controleBoot.class) == null && getOneObjectAtOffset(0, 2, controleBoot.class) == null && getOneObjectAtOffset(0, 3, controleBoot.class) == null && onderNiks)
+        int y = 1;
+        if(richting == "omlaag")
+        {
+            y = 1;
+        }
+        else if(richting == "omhoog")
+        {
+            y = -1;
+        }
+        if(getOneObjectAtOffset(0, y, controleBoot.class) == null && getOneObjectAtOffset(0, 2 * y, controleBoot.class) == null && getOneObjectAtOffset(0, 3 * y, controleBoot.class) == null)
         {
             vrij = true;
         }
@@ -246,4 +330,28 @@ public class controleBoot extends controleHavenObjecten
         return vrij;
     }
     
+    public void setGeselecteerd(boolean var)
+    {
+        if(var)
+        {
+            geselecteerd = true;
+            cirkel = new controleBootCirkel();
+            getWorld().addObject(cirkel, getX(), getY());
+        }
+        else
+        {
+            geselecteerd = false;
+            getWorld().removeObject(cirkel);
+        }
+    }
+    
+    public boolean isGeselecteerd()
+    {
+        return geselecteerd;
+    }
+    
+    public Status getStatus()
+    {
+        return bootStatus;
+    }
 }
