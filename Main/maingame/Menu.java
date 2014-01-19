@@ -38,5 +38,7 @@ public class Menu extends World
     
     void fill(){
         addObject(new PortOfRotterdam(),66,525);
+        addObject(new Spawnertje(),297,28);
+        addObject(new Spawnertje(),226,28);
     }
 }

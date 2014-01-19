@@ -20,6 +20,7 @@ public class Minigames extends World
         
 
         taskbar();
+
     }
     
     void taskbar(){
@@ -27,6 +28,7 @@ public class Minigames extends World
         addObject(new Afsluiten(), 48, 0);
         addObject(new Hoofdmenu(), 44, 0);
     }
+    
     
     
 }
