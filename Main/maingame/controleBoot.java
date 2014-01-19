@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
+import javax.swing.JOptionPane;
 /**
  * Write a description of class controleBoot here.
  * 
@@ -21,7 +22,7 @@ public class controleBoot extends controleHavenObjecten
     BoegNummer boegNummer = null;
     int destinationID = 0;
     int destinationX;
-    int laadLosTijd = 300;
+    int laadLosTijd = 600;
     Loodser mijnLoodser = null;
     
     public controleBoot()
@@ -84,6 +85,20 @@ public class controleBoot extends controleHavenObjecten
            if(isRouteVrij("omlaag"))
            {
                currentY += vaarSnelheid;
+           }
+           
+           if(verloren())
+           {
+               int reply = JOptionPane.showConfirmDialog(null, "Helaas, u heeft verloren. Wilt u nog een keer spelen?", "Verloren!", JOptionPane.YES_NO_OPTION);
+               if (reply == JOptionPane.YES_OPTION){
+               getWorld().removeObject(this);
+               Greenfoot.setWorld(new Controlecentrum());
+               return;
+               }
+               else if(reply == JOptionPane.NO_OPTION){
+               Greenfoot.setWorld(new Menu());
+               return;
+               }
            }
 
            if(getY() == 10)
@@ -151,10 +166,18 @@ public class controleBoot extends controleHavenObjecten
        }
        else if(bootStatus == Status.AANGEMEERD)
        {
-           laadLosTijd--;
            if(laadLosTijd == 0)
            {
-               bootStatus = Status.UITHAVENY;
+               setImage("../images/controle_Bootv2_leeg.png");
+               getWorld().removeObject(boegNummer);
+               if(Greenfoot.mouseClicked(this))
+               {
+                   bootStatus = Status.UITHAVENY;
+               }
+           }
+           else
+           {
+               laadLosTijd--;
            }
        }
        else if(bootStatus == Status.UITHAVENY)
@@ -353,5 +376,17 @@ public class controleBoot extends controleHavenObjecten
     public Status getStatus()
     {
         return bootStatus;
+    }
+    
+    public boolean verloren()
+    {
+        boolean verloren = false;
+        
+        if(getOneObjectAtOffset(0, 3, controleBoot.class) != null && getOneObjectAtOffset(0, 7, controleBoot.class) != null && getOneObjectAtOffset(0, 11, controleBoot.class) != null)
+        {
+            verloren = true;
+        }
+        
+        return verloren;
     }
 }
