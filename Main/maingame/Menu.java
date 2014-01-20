@@ -17,7 +17,7 @@ public class Menu extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 560, 1); 
-        
+        setPaintOrder(Links.class,MenuObjecten.class);
         links();
         taskbar();
         fill();
@@ -33,7 +33,6 @@ public class Menu extends World
         addObject(new LinkVrachtOverslaan(), 250, 130);
         addObject(new LinkControleKamer(), 600, 360);
         addObject(new LinkLoodsen(),400,50);
-        addObject(new LinkSchipRepareren(), 600, 190);
     }
     
     void fill(){

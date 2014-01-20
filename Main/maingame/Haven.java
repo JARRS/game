@@ -9,6 +9,8 @@ import java.util.*;
 public class Haven extends controleHavenObjecten
 {
     public int havenID;
+    public boolean bootInHaven = false;
+    
     public Haven(int ID)
     {
        havenID = ID;
@@ -39,6 +41,23 @@ public class Haven extends controleHavenObjecten
     public int getID()
     {
         return havenID;
+    }
+    
+    public void setBootInHaven(boolean a)
+    {
+        if(a == true)
+        {
+            bootInHaven = true;
+        }
+        else
+        {
+            bootInHaven = false;
+        }
+    }
+    
+    public boolean isBootInHaven()
+    {
+        return bootInHaven;
     }
     
     /*public int getXPosition(int id)

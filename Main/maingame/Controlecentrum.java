@@ -22,6 +22,9 @@ public class Controlecentrum extends Minigames
     Actor MoeilijkKnop = new MoeilijkKnop();
     MoeilijkKnop Moeilijk = (MoeilijkKnop) MoeilijkKnop;
     
+    Actor spawner = new Spawner();
+    Spawner spawnerObject = (Spawner) spawner;
+    
     public Controlecentrum()
     {
         fill();
@@ -35,7 +38,7 @@ public class Controlecentrum extends Minigames
     {
         
         addObject(ControlecentrumScore, 12, 0);
-        addObject(new Spawner(), 24, 41);
+        addObject(spawner, 24, 41);
         
         //zet havens neer + havennummers + Loodser
         Haven haven1 = new Haven(1);
@@ -80,7 +83,7 @@ public class Controlecentrum extends Minigames
         addObject(haven8, 47, 37);
         haven8.setImage("../images/HavenRechts.png");
         addObject(new HavenNummer("8"), 47, 38);
-        addObject(new Loodser(47, 40, 9), 47, 40);
+        addObject(new Loodser(47, 40, 8), 47, 40);
     }
     
     
@@ -172,6 +175,8 @@ public class Controlecentrum extends Minigames
         Normaal.undo();
         Moeilijk.undo();
         
+        spawnerObject.setDifficulty(600,600,600);
+        
     }
     
     public void normaal(){
@@ -179,6 +184,8 @@ public class Controlecentrum extends Minigames
         Makkelijk.undo();
         Normaal.geklikt();
         Moeilijk.undo();
+        
+        spawnerObject.setDifficulty(300,300,300);
     }
     
     public void moeilijk(){
@@ -186,6 +193,8 @@ public class Controlecentrum extends Minigames
         Makkelijk.undo();
         Normaal.undo();
         Moeilijk.geklikt();
+        
+        spawnerObject.setDifficulty(150,150,150);
     }
     
     public void start(){

@@ -73,7 +73,7 @@ public class Loodser extends controleHavenObjecten
         
         if(Greenfoot.mouseDragEnded(this))
         {
-            if(dezeBoot != null && getY() <= 24 && (dezeBoot.getStatus() == controleBoot.Status.BINNENVAREN || dezeBoot.getStatus() == controleBoot.Status.OMLAAG || dezeBoot.getStatus() == controleBoot.Status.WACHTENOPLOODS))
+            if(dezeBoot != null && getY() <= 24 && (dezeBoot.getStatus() == controleBoot.Status.BINNENVAREN || dezeBoot.getStatus() == controleBoot.Status.OMLAAG || dezeBoot.getStatus() == controleBoot.Status.WACHTENOPLOODS) && havenIsVrij())
             {
                 List<controleBoot> boten = getWorld().getObjects(controleBoot.class);
                 for(int i = 0; i < boten.size(); i++)
@@ -88,6 +88,8 @@ public class Loodser extends controleHavenObjecten
                 dezeBoot.acceptLoodser(this);
                 dezeBoot.setGeselecteerd(false);
                 staatOpBoot = true;
+                
+                
             }
             else
             {
@@ -107,4 +109,22 @@ public class Loodser extends controleHavenObjecten
         setLocation(x, y);
     }
         
+    public boolean havenIsVrij()
+    {
+        boolean ans = true;
+             List<Haven> havenList = getWorld().getObjects(Haven.class);
+              for(int i = 0; i < havenList.size(); i++)
+              {
+                  if(havenList.get(i).getID() == loodserID)
+                  {
+                      if(havenList.get(i).isBootInHaven())
+                      {
+                          ans = false;
+                      }
+                  
+                  }
+              }
+              
+        return ans;
+    }
 }

@@ -24,6 +24,7 @@ public class controleBoot extends controleHavenObjecten
     int destinationX;
     int laadLosTijd = 600;
     Loodser mijnLoodser = null;
+    int havenNr = 0;
     
     public controleBoot()
     {
@@ -159,6 +160,18 @@ public class controleBoot extends controleHavenObjecten
            if(getY() == 37)
            {
                turn(180);
+               //zet de boot in haven op true
+              
+                   List<Haven> havenList = getWorld().getObjects(Haven.class);
+                    for(int i = 0; i < havenList.size(); i++)
+                    {
+                        if(havenList.get(i).getID() == destinationID)
+                        {
+                            havenList.get(i).setBootInHaven(true);
+                        }
+                    }
+               havenNr = destinationID;
+               
                setDestinationID(0);
                mijnLoodser = null;
                bootStatus = Status.AANGEMEERD;
@@ -172,6 +185,15 @@ public class controleBoot extends controleHavenObjecten
                getWorld().removeObject(boegNummer);
                if(Greenfoot.mouseClicked(this))
                {
+                   //zet bootInHaven op false
+                   List<Haven> havenList = getWorld().getObjects(Haven.class);
+                    for(int i = 0; i < havenList.size(); i++)
+                    {
+                        if(havenList.get(i).getID() == havenNr)
+                        {
+                            havenList.get(i).setBootInHaven(false);
+                        }
+                    }
                    bootStatus = Status.UITHAVENY;
                }
            }

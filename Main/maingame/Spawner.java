@@ -23,6 +23,7 @@ public class Spawner extends controleHavenObjecten
     public int tijdGeledenBoot2 = tijdTussenBoot2;
     public int tijdGeledenBoot3 = tijdTussenBoot3;
     
+    
     public void act() 
     {
         //spawn boten
@@ -85,5 +86,11 @@ public class Spawner extends controleHavenObjecten
             spawnChance = spawnChance3;
         }
         return spawnChance;
+    }
+    
+    public void setDifficulty(int tijdTussenBoot1, int tijdTussenBoot2, int tijdTussenBoot3){
+        this.tijdTussenBoot1 = tijdTussenBoot1;
+        this.tijdTussenBoot2 = tijdTussenBoot2;
+        this.tijdTussenBoot3 = tijdTussenBoot3;
     }
 }

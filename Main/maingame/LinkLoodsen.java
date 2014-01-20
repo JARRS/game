@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class LinkLoodsen extends Actor
+public class LinkLoodsen extends Links
 {
     /**
      * Act - do whatever the LinkLoodsen wants to do. This method is called whenever
