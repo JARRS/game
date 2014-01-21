@@ -7,7 +7,7 @@ import java.util.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class VrachtOverslaan extends Minigames
+public class VrachtOverslaan extends World
 {
 
     /**
@@ -28,7 +28,7 @@ public class VrachtOverslaan extends Minigames
     public VrachtOverslaan()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(); 
+        super(50, 42, 20);  
         
         fill();
         taskbar();
@@ -261,5 +261,13 @@ public class VrachtOverslaan extends Minigames
         List startMenu = getObjects(StartMenuObjecten.class);
         removeObjects(startMenu);
     }
+    
+    void taskbar(){
+        addObject(new Taskbar2(), 24, 0);
+        addObject(new Afsluiten(), 48, 0);
+        addObject(new Hoofdmenu(), 44, 0);
+    }
+    
+    
 }
 

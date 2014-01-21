@@ -17,8 +17,26 @@ public class VoortgangBalk extends MenuObjecten
     private GreenfootImage image2 = new GreenfootImage("images/Voortgang30.png");
     private GreenfootImage image3 = new GreenfootImage("images/VoortGang60.png");
     private GreenfootImage image4 = new GreenfootImage("images/VoortGang90.png");
+    private static boolean VrachtOverslaanGeslaagd = false;
+    private static boolean ControleCentrumGeslaagd = false;
+    private static boolean LoodsenEndlessRunnerGeslaagd = false;
     
     public VoortgangBalk(){
+        
+        if(VrachtOverslaanGeslaagd == true){
+            voortgang += 33;
+        }
+        
+        if(ControleCentrumGeslaagd == true){
+            voortgang += 33;
+        }
+        
+        if(LoodsenEndlessRunnerGeslaagd == true){
+            voortgang += 34;
+        }
+        
+        
+        
         if(voortgang == 0){
             setImage(image1);
         }
@@ -33,7 +51,15 @@ public class VoortgangBalk extends MenuObjecten
         }
     }
     
-    public void setVoortgang(){
-        this.voortgang = voortgang;
+    public static  void setVoortgang(int game){
+        if(game == 1){
+            VrachtOverslaanGeslaagd = true;
+        }
+        else if(game == 2){
+            ControleCentrumGeslaagd = true;
+        }
+        else if(game == 3){
+            LoodsenEndlessRunnerGeslaagd = true;
+        }
     }
 }

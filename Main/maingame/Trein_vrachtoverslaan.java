@@ -50,6 +50,7 @@ public class Trein_vrachtoverslaan extends Vrachoverslaanobjecten
             int scheepsVracht = wereld.getScheepsVracht();
             if(scheepsVracht == 0){
                 VrachtOverslaan dezeWereld = (VrachtOverslaan) getWorld();
+                VoortgangBalk.setVoortgang(1);
 
                 if(ScoreLabel.minutenGetal <= ScoreVrachtoverslaan.minutenGetal){
                     if(ScoreLabel.minutenGetal == ScoreVrachtoverslaan.minutenGetal  && ScoreLabel.secondenGetal < ScoreVrachtoverslaan.secondenGetal){
@@ -71,6 +72,8 @@ public class Trein_vrachtoverslaan extends Vrachoverslaanobjecten
                     Greenfoot.setWorld(new Menu());
                     return;
                 }
+                
+                
             }
             
             currentX = 0;

@@ -33,6 +33,10 @@ public class ScoreLabel extends HighscoresObjecten
            setScore(minuten, seconden);
            teller = 0;
         }
+        
+       if(2 == 1){
+           checkScore();
+        }
     }    
     
     public ScoreLabel ()  
@@ -65,6 +69,15 @@ public class ScoreLabel extends HighscoresObjecten
    public void scoreReset(){
        secondenGetal = 00;
        minutenGetal = 00;
+    }
+    
+   private void checkScore(){
+       if(minutenGetal > ScoreControleCentrum.minutenGetal){
+           
+        }
+        else if(minutenGetal == ScoreControleCentrum.minutenGetal && secondenGetal > ScoreControleCentrum.secondenGetal){
+            
+        }
     }
     
    

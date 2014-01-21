@@ -6,14 +6,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Wreckage_1 extends Obstakels
+public class Wreckage extends Obstakels
 {
     /**
      * Act - do whatever the Wreckage_1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
-    {
-        // Add your action code here.
-    }    
+    */  
+    
+    public Wreckage(){
+        int imageKans = Greenfoot.getRandomNumber(2);
+        if(imageKans == 0){
+            setImage("images/wreckage01.png");
+        }
+        else{
+            setImage("images/wreckage_2.png");
+        }
+    
+    }
 }

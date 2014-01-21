@@ -12,8 +12,17 @@ public class Boeien extends Obstakels
      * Act - do whatever the boeien wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act() 
-    {
-        // Add your action code here.
-    }    
+   
+    
+    public Boeien(){
+        int imageKans = Greenfoot.getRandomNumber(2);
+        if(imageKans == 0){
+            setImage("images/Boeien_1.png");
+        }
+        else{
+            setImage("images/Boeien_2.png");
+        }
+    }
+    
+    
 }

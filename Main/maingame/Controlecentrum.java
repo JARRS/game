@@ -6,7 +6,7 @@ import java.util.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Controlecentrum extends Minigames
+public class Controlecentrum extends World
 {
 
     /**
@@ -27,6 +27,7 @@ public class Controlecentrum extends Minigames
     
     public Controlecentrum()
     {
+        super(50, 42, 20); 
         fill();
         taskbar();
         //objects();
@@ -206,6 +207,12 @@ public class Controlecentrum extends Minigames
     private void remove(){
         List startMenu = getObjects(StartMenuObjecten.class);
         removeObjects(startMenu);
+    }
+    
+    void taskbar(){
+        addObject(new Taskbar2(), 24, 0);
+        addObject(new Afsluiten(), 48, 0);
+        addObject(new Hoofdmenu(), 44, 0);
     }
     
     }

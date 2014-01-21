@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.params=x\ y
-comment0.target=Loodsboot(double,\ double)
+comment0.target=Vrachtschip(double,\ double)
 comment1.params=
 comment1.target=void\ act()
 comment2.params=
-comment2.target=void\ sturen()
+comment2.target=void\ beweegRichtingSleepboot()
 numComments=3
