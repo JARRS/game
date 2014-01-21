@@ -14,6 +14,14 @@ public class LinkLoodsen extends Links
      */
     public void act() 
     {
-        // Add your action code here.
-    }    
+        // Add your action code here.{
+        clicked();
+    }   
+    
+    void clicked(){
+        if(Greenfoot.mouseClicked(this) == true){
+            getWorld().removeObject(this);
+            Greenfoot.setWorld(new Loodsen_Endlessrunner());
+        }
+    }
 }

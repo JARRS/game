@@ -38,6 +38,7 @@ public class Controlecentrum extends Minigames
     {
         
         addObject(ControlecentrumScore, 12, 0);
+        ControlecentrumScore.scoreReset();
         addObject(spawner, 24, 41);
         
         //zet havens neer + havennummers + Loodser
