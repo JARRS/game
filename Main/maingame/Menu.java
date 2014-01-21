@@ -39,5 +39,6 @@ public class Menu extends World
         addObject(new PortOfRotterdam(),66,525);
         addObject(new Spawnertje(),297,28);
         addObject(new Spawnertje(),226,28);
+        addObject(new VoortgangBalk(),409,519);
     }
 }

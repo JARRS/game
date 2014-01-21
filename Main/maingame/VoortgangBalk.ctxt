@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.params=
-comment0.target=void\ clicked()
+comment0.target=VoortgangBalk()
 comment1.params=
-comment1.target=void\ tellen()
+comment1.target=void\ setVoortgang()
 numComments=2

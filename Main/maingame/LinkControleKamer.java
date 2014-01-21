@@ -23,15 +23,15 @@ public class LinkControleKamer extends Links
         }
     }
     
-    void tellen(){
-        teller++;
-        if(teller == 20){
-            setImage(image1);
+        void tellen(){
+            teller++;
+            if(teller == 20){
+                setImage(image1);
+            }
+            else if(teller == 40){
+                setImage(image2);
+                teller=0;
+            }
         }
-        else if(teller == 40){
-            setImage(image2);
-            teller=0;
-        }
-    }
     
 }
