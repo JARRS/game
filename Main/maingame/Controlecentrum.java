@@ -215,5 +215,6 @@ public class Controlecentrum extends World
         addObject(new Hoofdmenu(), 44, 0);
     }
     
-    }
+   
+}
  

@@ -15,6 +15,7 @@ public class ScoreLabel extends HighscoresObjecten
     static int teller = 0;
     static String vrachtOverslaanScore = "";
     static String controleCentrumScore = "";
+    World Controlecentrum;
     //HighscoreVrachtOverslaan highscore = (HighscoreVrachtOverslaan) getOneObjectAtOffset(4,0,ScoreLabel.class);
     
     public void act() 
@@ -34,6 +35,7 @@ public class ScoreLabel extends HighscoresObjecten
            teller = 0;
         }
         
+        World Controlecentrum = new Controlecentrum();
        if(2 == 1){
            checkScore();
         }
@@ -79,6 +81,8 @@ public class ScoreLabel extends HighscoresObjecten
             
         }
     }
+    
+   
     
    
    

@@ -18,7 +18,7 @@ public class Loodsen_Endlessrunner extends World
         super(50,42,20,false);
         taskbar();
         fill();
-        setPaintOrder(Afsluiten.class,Hoofdmenu.class,Taskbar2.class,HealthBar.class,Loodsboot.class,Vrachtschip.class,Kant.class,HealthBoost.class, Boeien.class, Wreckage.class, Ondiepwater.class, Water.class);
+        setPaintOrder(Afsluiten.class,Hoofdmenu.class,Taskbar2.class,HealthBar.class,Loodsboot.class,Vrachtschip.class,Kant.class,HealthBoost.class, Speedboost.class, Boeien.class, Wreckage.class, Ondiepwater.class, Water.class);
     }
     
     void taskbar(){

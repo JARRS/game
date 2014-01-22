@@ -19,7 +19,8 @@ public class LinkControleKamer extends Links
     void clicked(){
         if(Greenfoot.mouseClicked(this) == true){
             getWorld().removeObject(this);
-            Greenfoot.setWorld(new Controlecentrum());
+            World controleCentrum = new Controlecentrum();
+            Greenfoot.setWorld(controleCentrum);
         }
     }
     

@@ -15,6 +15,8 @@ public class Loodsboot extends LoodsenEndlessRunnerObjecten
     double currentX;
     double currentY;
     double vaarSnelheid = 0.2;
+     boolean  boost = false;
+    int boostteller = 0;
     
     public Loodsboot(double x, double y)
     {
@@ -26,6 +28,13 @@ public class Loodsboot extends LoodsenEndlessRunnerObjecten
     {
         sturen();
         setLocation((int)currentX, (int)currentY);
+        
+        if(boost == true){
+            boost();
+        }
+        else{
+            vaarSnelheid = 0.2;
+        }
     }    
     
     private void sturen(){
@@ -40,6 +49,18 @@ public class Loodsboot extends LoodsenEndlessRunnerObjecten
         }
         else if(Greenfoot.isKeyDown("right")){
             currentX += vaarSnelheid* 0.5;
+        }
+    }
+    
+    public  void setSpeedboost(boolean sneller){
+        boost = sneller;
+    }
+    
+    public void boost(){
+        boostteller++;
+        vaarSnelheid = 0.4;
+        if(boostteller == 300){
+            boost = false;
         }
     }
     

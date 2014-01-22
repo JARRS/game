@@ -41,6 +41,11 @@ public class SpawnerLoodsen extends LoodsenEndlessRunnerObjecten
                 getWorld().addObject(new HealthBoost(),getX()+2,getY());
             }
             
+            int boostKans = Greenfoot.getRandomNumber(700);
+            if(boostKans == 0 && (getY() > 6 && getY() <= 35)){
+                getWorld().addObject(new Speedboost(),getX()+2,getY());
+            }
+            
         }
         if((spawnTeller% 150 == 0) && (getY() >= 9 && getY() <= 39) && getY()%10 == 9){
             int waterKans = Greenfoot.getRandomNumber(100);

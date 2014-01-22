@@ -13,6 +13,9 @@ public class Powerups extends GespawndeObjecten
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
    boolean werken = true;
+   Loodsboot deLoods;
+   Actor schip;
+   
     public void act() 
     {
         moven();
@@ -27,6 +30,9 @@ public class Powerups extends GespawndeObjecten
     
     public void checkYourself(){
         if(getOneIntersectingObject(Loodsboot.class) != null || getOneIntersectingObject(Vrachtschip.class) != null){
+            if(getOneIntersectingObject(Loodsboot.class) != null){
+                deLoods = (Loodsboot) getOneIntersectingObject(Loodsboot.class);
+            }
             actie();
             remove();
             return;

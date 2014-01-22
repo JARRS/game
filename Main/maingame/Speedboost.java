@@ -12,8 +12,11 @@ public class Speedboost extends Powerups
      * Act - do whatever the Speedboost wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act() 
-    {
-        // Add your action code here.
-    }    
+    public Speedboost(){
+        turn(180);
+    }
+    
+    public void actie(){
+        deLoods.setSpeedboost(true);
+    }
 }
