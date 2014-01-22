@@ -27,8 +27,7 @@ public class Obstakels extends GespawndeObjecten
     
     public void checkYourself(){
         if(getOneIntersectingObject(Loodsboot.class) != null || getOneIntersectingObject(Vrachtschip.class) != null){
-            HealthBar.setLevens(-1);
-            werken = false;
+            actie();
             remove();
             return;
         }
@@ -36,5 +35,9 @@ public class Obstakels extends GespawndeObjecten
     
     public void remove(){
         getWorld().removeObject(this);
+    }
+    
+    public void actie(){
+        HealthBar.setLevens(-1);
     }
 }
