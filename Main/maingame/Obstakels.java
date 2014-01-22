@@ -15,6 +15,7 @@ public class Obstakels extends GespawndeObjecten
     boolean werken = true;
     public void act() 
     {
+        if (go == true){
         moven();
         if(werken == true){
             if(getX() == 0){
@@ -23,13 +24,20 @@ public class Obstakels extends GespawndeObjecten
         checkYourself();
             
         }
+    }
     }    
     
     public void checkYourself(){
-        if(getOneIntersectingObject(Loodsboot.class) != null || getOneIntersectingObject(Vrachtschip.class) != null){
+        if(getOneIntersectingObject(Loodsboot.class) != null || getOneIntersectingObject(Vrachtschip.class) != null ){
+            if(Loodsboot.getKwetsbaar() == true && Vrachtschip.getKwetsbaar() == true){
             actie();
             remove();
             return;
+            }
+            else{
+                remove();
+                return;
+            }
         }
     }
     

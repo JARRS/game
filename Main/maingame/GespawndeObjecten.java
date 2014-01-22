@@ -13,9 +13,12 @@ public class GespawndeObjecten extends LoodsenEndlessRunnerObjecten
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     int mover = 0;
+    static boolean go = false;
     public void act() 
     {
+        if(go == true){
         moven();
+    }
     }    
     
     public void moven(){
@@ -27,5 +30,9 @@ public class GespawndeObjecten extends LoodsenEndlessRunnerObjecten
                 getWorld().removeObject(this);
             }
         }
+    }
+    
+    public static void setGo(boolean start){
+        go = start;
     }
 }

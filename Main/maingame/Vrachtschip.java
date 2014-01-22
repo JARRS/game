@@ -15,7 +15,7 @@ public class Vrachtschip extends LoodsenEndlessRunnerObjecten
     double currentX;
     double currentY;
     private static double vaarSnelheid = 0.1;
-    
+    private static boolean kwetsbaar = true;
     public Vrachtschip(double x, double y)
     {
         currentX = x;
@@ -40,6 +40,14 @@ public class Vrachtschip extends LoodsenEndlessRunnerObjecten
     
     public static void setVaarSnelheid(double snelheid){
         vaarSnelheid = snelheid;
+    }
+    
+    public static void setKwetsbaar(boolean statement){
+        kwetsbaar = statement;
+    }
+    
+    public static boolean getKwetsbaar(){
+        return kwetsbaar;
     }
     
     

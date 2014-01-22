@@ -34,5 +34,9 @@ public class StartKnop extends StartKnoppen
             Controlecentrum deWorld = (Controlecentrum) getWorld();
             deWorld.start();
         }
+        else if(worldType.contains("Loodsen_Endlessrunner")){
+            Loodsen_Endlessrunner deWorld = (Loodsen_Endlessrunner) getWorld();
+            deWorld.start();
+        }
     }  
 }

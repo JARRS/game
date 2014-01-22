@@ -82,7 +82,7 @@ public class HealthBar extends LoodsenEndlessRunnerObjecten
     }
     
     public static void setLevens(int getal){
-        if((levens == 3 && getal < 0) || (levens < 3)){
+        if((levens == difficulty && getal < 0) || (levens < difficulty)){
         int levenOpteller = getal;
         levens += levenOpteller;
         }

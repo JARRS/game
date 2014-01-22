@@ -17,7 +17,8 @@ public class Loodsboot extends LoodsenEndlessRunnerObjecten
     double vaarSnelheid = 0.2;
     static boolean  boost = false;
     int boostteller = 0;
-    
+    private static boolean kwetsbaar = true;
+    int immuneteller = 0;
     public Loodsboot(double x, double y)
     {
         currentX = x;
@@ -34,6 +35,9 @@ public class Loodsboot extends LoodsenEndlessRunnerObjecten
         }
         else{
             vaarSnelheid = 0.2;
+        }
+        if(kwetsbaar == false){
+            immune();
         }
     }    
     
@@ -57,13 +61,42 @@ public class Loodsboot extends LoodsenEndlessRunnerObjecten
     }
     
     public void boost(){
+        setImage("images/Speedboot.png");
         boostteller++;
         vaarSnelheid = 0.4;
         Vrachtschip.setVaarSnelheid(0.4);
         if(boostteller == 300){
             boost = false;
+            setImage("images/sleepboot_loodsen.png");
             Vrachtschip.setVaarSnelheid(0.4);
+            boostteller = 0;
         }
     }
     
+    public void immune(){
+        setImage("images/sleepboot_loodsen_armored.png");
+        immuneteller++;
+        Vrachtschip.setKwetsbaar(false);
+        if(immuneteller == 300){
+            kwetsbaar = true;
+            setImage("images/sleepboot_loodsen.png");
+            Vrachtschip.setKwetsbaar(true);
+            immuneteller = 0;
+        }
+        
+    }
+    
+    public static void setKwetsbaar(boolean statement){
+        kwetsbaar = statement;
+    }
+    
+    public static boolean getKwetsbaar(){
+        return kwetsbaar;
+    }
+
+
 }
+        
+
+    
+

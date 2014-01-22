@@ -36,6 +36,10 @@ public class NormaalKnop extends StartKnoppen
             Controlecentrum deWorld = (Controlecentrum) getWorld();
             deWorld.normaal();
         }
+        else if(worldType.contains("Loodsen_Endlessrunner")){
+            Loodsen_Endlessrunner deWorld = (Loodsen_Endlessrunner) getWorld();
+            deWorld.normaal();
+        }
     } 
     
     public void geklikt(){

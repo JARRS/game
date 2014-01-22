@@ -37,6 +37,10 @@ public class MoeilijkKnop extends StartKnoppen
             Controlecentrum deWorld = (Controlecentrum) getWorld();
             deWorld.moeilijk();
         }
+        else if(worldType.contains("Loodsen_Endlessrunner")){
+            Loodsen_Endlessrunner deWorld = (Loodsen_Endlessrunner) getWorld();
+            deWorld.moeilijk();
+        }
     }
     
     public void geklikt(){

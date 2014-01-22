@@ -17,7 +17,8 @@ public class Powerups extends GespawndeObjecten
    Actor schip;
    
     public void act() 
-    {
+    {   
+        if(go == true){
         moven();
         if(werken == true){
             if(getX() == 0){
@@ -26,6 +27,7 @@ public class Powerups extends GespawndeObjecten
         checkYourself();
             
         }
+    }
     }    
     
     public void checkYourself(){

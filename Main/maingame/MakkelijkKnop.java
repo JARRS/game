@@ -35,6 +35,10 @@ public class MakkelijkKnop extends StartKnoppen
             Controlecentrum deWorld = (Controlecentrum) getWorld();
             deWorld.makkelijk();
         }
+        else if(worldType.contains("Loodsen_Endlessrunner")){
+            Loodsen_Endlessrunner deWorld = (Loodsen_Endlessrunner) getWorld();
+            deWorld.makkelijk();
+        }
 
     }
     

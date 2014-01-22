@@ -345,7 +345,7 @@ public class controleBoot extends controleHavenObjecten
     public boolean isRouteVrij(String richting)
     {
         boolean vrij = true;
-        boolean onderNiks = true;
+        /* boolean onderNiks = true;
         
         List<controleBoot> bootList = getWorld().getObjectsAt(getX(), getY(), controleBoot.class);
         for(int i = 0; i < bootList.size(); i++)
@@ -354,7 +354,7 @@ public class controleBoot extends controleHavenObjecten
             {
                 onderNiks = false;
             }
-        }
+        }*/
         int y = 1;
         if(richting == "omlaag")
         {

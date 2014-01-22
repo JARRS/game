@@ -170,14 +170,13 @@ public class Controlecentrum extends World
         Normaal.geklikt();
     }
     
-     
     public void makkelijk(){
         
         Makkelijk.geklikt();
         Normaal.undo();
         Moeilijk.undo();
         
-        spawnerObject.setDifficulty(600,600,600);
+        spawnerObject.setDifficulty(800,800,800);
         
     }
     
@@ -187,7 +186,7 @@ public class Controlecentrum extends World
         Normaal.geklikt();
         Moeilijk.undo();
         
-        spawnerObject.setDifficulty(300,300,300);
+        spawnerObject.setDifficulty(600,600,600);
     }
     
     public void moeilijk(){
@@ -196,7 +195,7 @@ public class Controlecentrum extends World
         Normaal.undo();
         Moeilijk.geklikt();
         
-        spawnerObject.setDifficulty(150,150,150);
+        spawnerObject.setDifficulty(300,300,300);
     }
     
     public void start(){

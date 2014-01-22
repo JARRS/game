@@ -219,7 +219,7 @@ public class VrachtOverslaan extends World
     public void startMenu(){
         //voegt startMenu toe
         addObject(new StartMenuAchtergrond(), 25, 20);
-        addObject(new VrachtOverslaanTekst(), 25, 20);
+        addObject(new SleepbootTekst(), 25, 20);
         addObject(new StartKnop(), 30, 33);
         
         

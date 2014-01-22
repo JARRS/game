@@ -48,10 +48,13 @@ public class Spawner extends controleHavenObjecten
             spawnChance3 += 200;
         }
         
+        //maak het spel moeilijker
+        wordtMoeilijker();
+        
         //reset boot timers
         tijdGeledenBoot1++;
         tijdGeledenBoot2++;
-        tijdGeledenBoot3++;
+        tijdGeledenBoot3++;   
     }   
     
     public void setSpawnChance(int boot, int verschil)
@@ -92,5 +95,16 @@ public class Spawner extends controleHavenObjecten
         this.tijdTussenBoot1 = tijdTussenBoot1;
         this.tijdTussenBoot2 = tijdTussenBoot2;
         this.tijdTussenBoot3 = tijdTussenBoot3;
+    }
+    
+    public void wordtMoeilijker()
+    {
+        
+        ScoreLabel scoreLabel = (ScoreLabel) getWorld().getObjects(ScoreLabel.class).get(0);
+        int minuten = scoreLabel.getMinuten();
+        spawnChance1 = (int) (tijdTussenBoot1 * (0.90 * (minuten + 1)));
+        spawnChance2 = (int) (tijdTussenBoot2 * (0.90 * (minuten + 1)));
+        spawnChance3 = (int) (tijdTussenBoot3 * (0.90 * (minuten + 1)));
+        
     }
 }
