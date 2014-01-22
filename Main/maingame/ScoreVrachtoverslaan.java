@@ -34,7 +34,6 @@ public class ScoreVrachtoverslaan extends HighscoresObjecten
     
     public static void setVrachtOverslaanScore(String deScore){
         vrachtOverslaanScore = deScore;
-    
     }
     
    public void setScore(String vrachtOverslaanScore)  

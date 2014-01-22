@@ -3,6 +3,4 @@ comment0.params=
 comment0.target=Highscores()
 comment1.params=
 comment1.target=void\ taskbar()
-comment2.params=score
-comment2.target=void\ setScore(java.lang.String)
-numComments=3
+numComments=2

@@ -15,7 +15,7 @@ public class ScoreLabel extends HighscoresObjecten
     static int teller = 0;
     static String vrachtOverslaanScore = "";
     static String controleCentrumScore = "";
-    World Controlecentrum;
+    
     //HighscoreVrachtOverslaan highscore = (HighscoreVrachtOverslaan) getOneObjectAtOffset(4,0,ScoreLabel.class);
     
     public void act() 
@@ -31,12 +31,13 @@ public class ScoreLabel extends HighscoresObjecten
            String seconden = formatter.format(secondenGetal);
            String minuten = formatter.format(minutenGetal);
            vrachtOverslaanScore = minuten + ":" + seconden;
+           controleCentrumScore = minuten + ":" + seconden;
            setScore(minuten, seconden);
            teller = 0;
         }
         
-        World Controlecentrum = new Controlecentrum();
-       if(2 == 1){
+        String worldType = "" + getWorld();
+       if(worldType.contains("Controlecentrum")){
            checkScore();
         }
     }    
@@ -74,11 +75,10 @@ public class ScoreLabel extends HighscoresObjecten
     }
     
    private void checkScore(){
-       if(minutenGetal > ScoreControleCentrum.minutenGetal){
-           
-        }
-        else if(minutenGetal == ScoreControleCentrum.minutenGetal && secondenGetal > ScoreControleCentrum.secondenGetal){
-            
+       if((minutenGetal > ScoreControleCentrum.minutenGetal) || (minutenGetal == ScoreControleCentrum.minutenGetal && secondenGetal > ScoreControleCentrum.secondenGetal)){
+           ScoreControleCentrum.setControleCentrumScore(controleCentrumScore);
+           ScoreControleCentrum.minutenGetal = this.minutenGetal;
+           ScoreControleCentrum.secondenGetal = this.secondenGetal;
         }
     }
     
