@@ -17,6 +17,7 @@ public class Speedboost extends Powerups
     }
     
     public void actie(){
-        deLoods.setSpeedboost(true);
+        Loodsboot.setSpeedboost(true);
+    
     }
 }

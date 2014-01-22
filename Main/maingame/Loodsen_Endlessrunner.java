@@ -13,12 +13,13 @@ public class Loodsen_Endlessrunner extends World
      * Constructor for objects of class Loodsen_Endlessrunner.
      * 
      */
+    Distance loodsDistance = new Distance();
     public Loodsen_Endlessrunner()
     {    
         super(50,42,20,false);
         taskbar();
         fill();
-        setPaintOrder(Afsluiten.class,Hoofdmenu.class,Taskbar2.class,HealthBar.class,Loodsboot.class,Vrachtschip.class,Kant.class,HealthBoost.class, Speedboost.class, Boeien.class, Wreckage.class, Ondiepwater.class, Water.class);
+        setPaintOrder(Distance.class,Afsluiten.class,Hoofdmenu.class,Taskbar2.class,HealthBar.class,Loodsboot.class,Vrachtschip.class,Kant.class,HealthBoost.class, Speedboost.class, Boeien.class, Wreckage.class, Ondiepwater.class, Water.class);
     }
     
     void taskbar(){
@@ -44,5 +45,7 @@ public class Loodsen_Endlessrunner extends World
         addObject(new Vrachtschip(5.0, 20.0), 5, 20);
         addObject(new Loodsboot(13.0,20.0), 13, 20);
         addObject(new HealthBar(), 45, 2);
+        addObject(loodsDistance, 12, 0);
+        loodsDistance.scoreReset();
     }
 }

@@ -14,7 +14,7 @@ public class Vrachtschip extends LoodsenEndlessRunnerObjecten
      */
     double currentX;
     double currentY;
-    double vaarSnelheid = 0.1;
+    private static double vaarSnelheid = 0.1;
     
     public Vrachtschip(double x, double y)
     {
@@ -37,4 +37,10 @@ public class Vrachtschip extends LoodsenEndlessRunnerObjecten
         currentY += yRichting * vaarSnelheid;
         currentX += xRichting * vaarSnelheid;
     } 
+    
+    public static void setVaarSnelheid(double snelheid){
+        vaarSnelheid = snelheid;
+    }
+    
+    
 }

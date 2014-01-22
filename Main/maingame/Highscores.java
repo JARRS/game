@@ -15,6 +15,7 @@ public class Highscores extends World
      */
     ScoreVrachtoverslaan scoreLabelVO = new ScoreVrachtoverslaan();
     ScoreControleCentrum scoreLabelCC = new ScoreControleCentrum();
+    ScoreSleepboot scoreLabelSB = new ScoreSleepboot();
     public Highscores()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -22,6 +23,7 @@ public class Highscores extends World
         taskbar();
         addObject(scoreLabelVO, 491, 144);
         addObject(scoreLabelCC, 491, 164);
+        addObject(scoreLabelSB, 491, 184);
     }
     
     void taskbar(){

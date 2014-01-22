@@ -15,7 +15,7 @@ public class Loodsboot extends LoodsenEndlessRunnerObjecten
     double currentX;
     double currentY;
     double vaarSnelheid = 0.2;
-     boolean  boost = false;
+    static boolean  boost = false;
     int boostteller = 0;
     
     public Loodsboot(double x, double y)
@@ -52,15 +52,17 @@ public class Loodsboot extends LoodsenEndlessRunnerObjecten
         }
     }
     
-    public  void setSpeedboost(boolean sneller){
+    public static void setSpeedboost(boolean sneller){
         boost = sneller;
     }
     
     public void boost(){
         boostteller++;
         vaarSnelheid = 0.4;
+        Vrachtschip.setVaarSnelheid(0.4);
         if(boostteller == 300){
             boost = false;
+            Vrachtschip.setVaarSnelheid(0.4);
         }
     }
     

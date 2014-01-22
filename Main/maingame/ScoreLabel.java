@@ -80,6 +80,9 @@ public class ScoreLabel extends HighscoresObjecten
            ScoreControleCentrum.minutenGetal = this.minutenGetal;
            ScoreControleCentrum.secondenGetal = this.secondenGetal;
         }
+       if(minutenGetal == 2 && secondenGetal == 0){
+           VoortgangBalk.setVoortgang(2);
+        }
     }
     
    

@@ -27,5 +27,9 @@ public class kraanXding extends Vrachoverslaanobjecten
         {
             setLocation(mx, getY());
         }
-    }    
+    }  
+    
+    public kraanXding(){
+        turn(180);
+    }
 }
